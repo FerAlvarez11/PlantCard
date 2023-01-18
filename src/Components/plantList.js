@@ -1,8 +1,8 @@
 import Plant from "./plant";
-import AddPlant from "./addPlant";
+import {Link} from "react-router-dom";
 
 
-function PlantList({ plants, handleAddPlant }) {
+function PlantList({ plants }) {
     return (
 
       <div className="plant-list">  
@@ -15,9 +15,9 @@ function PlantList({ plants, handleAddPlant }) {
                 wateringTime={plant.wateringTime}
             />
         )}
-        
-        <AddPlant handleAddPlant={handleAddPlant}/>
 
+    <Link className="centered button" to="/add-plant">Add Plant</Link>  
+        
       </div>
     );
 }

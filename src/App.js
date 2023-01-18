@@ -32,12 +32,10 @@ function App() {
     
     <div className="container">
    
-   
-
         <Routes>
           <Route path="/" element={<Homepage/>}/>
-          <Route path="/add-plant" element={<AddPlant/>}/>
-          <Route path="/plant-list" element={<PlantList plants={plants} handleAddPlant={addPlant}/>}/>
+          <Route path="/add-plant" element={<AddPlant handleAddPlant={addPlant}/>}/>
+          <Route path="/plant-list" element={<PlantList plants={plants}/>}/>
         </Routes>
       
 

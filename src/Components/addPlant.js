@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 function AddPlant({ handleAddPlant }) {
@@ -9,6 +9,8 @@ function AddPlant({ handleAddPlant }) {
         wateringTime: " ",
         notes:" "
     });
+
+    const navigate = useNavigate();
  
     function handlePlantName(e) {
         setPlants({
@@ -35,15 +37,13 @@ function AddPlant({ handleAddPlant }) {
     
     const handleOnSubmit = (event) => {
         handleAddPlant(plants);
-        event.preventDefault();
-        <Navigate to="/plant-list" />;
+        navigate("/plant-list");
     };
 
     
     return (
         <div className="form-container">  
-            <form className="addPlantFormItems" onSubmit={handleOnSubmit}>
-
+        
                 <label 
                     className="labelform" 
                     htmlFor="username">Plant name
@@ -110,8 +110,7 @@ function AddPlant({ handleAddPlant }) {
                     onChange={handleNotes}
                 />
 
-                <button className="centered button" type="submit">Submit</button>
-            </form>
+                <button className="centered button" type="submit" onClick={handleOnSubmit}>Submit</button>
         </div>
     );
 }
