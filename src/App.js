@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import PlantList from "./Components/plantList";
+import { nanoid } from 'nanoid';
+import { Routes, Route } from "react-router-dom";
+import AddPlant from "./Components/addPlant";
+import Homepage from "./Components/Homepage";
+
 
 function App() {
+  
+  const [plants, setPlants] = useState([{
+    id: nanoid(),
+    plantName: "Mart",
+    wateringTime: "Every day",
+    notes: "notes"
+  }])
+
+  const addPlant = (plant) => {
+
+    const newPlant = {
+      id: nanoid(),
+      plantName: plant.plantName,
+      wateringTime: plant.wateringTime,
+      notes: plant.notes
+    };
+
+    const newPlants = [...plants, newPlant];
+    setPlants(newPlants);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+    <div className="container">
+   
+   
+
+        <Routes>
+          <Route path="/" element={<Homepage/>}/>
+          <Route path="/add-plant" element={<AddPlant/>}/>
+          <Route path="/plant-list" element={<PlantList plants={plants} handleAddPlant={addPlant}/>}/>
+        </Routes>
+      
+
     </div>
   );
 }
