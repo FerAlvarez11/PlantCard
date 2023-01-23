@@ -4,6 +4,9 @@ import { nanoid } from 'nanoid';
 import { Routes, Route } from "react-router-dom";
 import AddPlant from "./Components/addPlant";
 import Homepage from "./Components/Homepage";
+import "./App.css";
+import "bulma/css/bulma.min.css"
+
 
 
 function App() {
@@ -30,7 +33,7 @@ function App() {
 
   return (
     
-    <div className="container">
+    <div className="App">
    
         <Routes>
           <Route path="/" element={<Homepage/>}/>
