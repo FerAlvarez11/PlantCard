@@ -2,13 +2,8 @@ import Plant from "./plant";
 import {Link} from "react-router-dom";
 
 
-function PlantList({ plants }) {
-
-
-
-    
+function PlantList({ plants }) {    
     return (
-
         <div className="container">  
             <div className="columns">
                 <div className="column"></div>
@@ -26,6 +21,8 @@ function PlantList({ plants }) {
                             id={plant.id}
                             plantName={plant.plantName}
                             wateringTime={plant.wateringTime}
+                            freuencyToWaterInSeconds={plant.frequencyToWaterInSeconds}
+                            lastWaterDate={plant.lastWaterDate}                            
                         />
                     )}
                 </div>

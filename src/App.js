@@ -9,39 +9,38 @@ import "bulma/css/bulma.min.css"
 
 
 
-function App() {
-  
+function App() {    
   const [plants, setPlants] = useState([{
     id: nanoid(),
     plantName: "Mart",
     wateringTime: "Every day",
-    notes: "notes"
+    frequencyToWaterInSeconds: 3526,
+    notes: "notes",
+    lastWaterDate:"15-03"
   }])
 
   const addPlant = (plant) => {
-
     const newPlant = {
       id: nanoid(),
       plantName: plant.plantName,
       wateringTime: plant.wateringTime,
-      notes: plant.notes
+      frequencyToWaterInSeconds: plant.frequencyToWaterInSeconds,
+      notes: plant.notes,
+      lastWaterDate : plant.lastWaterDate
     };
 
     const newPlants = [...plants, newPlant];
+
     setPlants(newPlants);
   }
 
-  return (
-    
-    <div className="App">
-   
+  return (    
+    <div className="App">   
         <Routes>
           <Route path="/" element={<Homepage/>}/>
           <Route path="/add-plant" element={<AddPlant handleAddPlant={addPlant}/>}/>
           <Route path="/plant-list" element={<PlantList plants={plants}/>}/>
-        </Routes>
-      
-
+        </Routes>    
     </div>
   );
 }
