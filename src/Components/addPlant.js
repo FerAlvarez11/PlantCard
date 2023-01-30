@@ -6,16 +6,16 @@ function AddPlant({ handleAddPlant }) {
     const [plant, setPlant] = useState({
         plantName: "",
         wateringTime: "",
-        frequencyToWaterInSeconds: null,
+        frequencyToWater: null,
         notes: "",
         lastWaterDate: ""
     });
 
     const navigate = useNavigate();
 
-    const dateNow = Date.now();
+    const today = Date.now();
 
-    const today = Math.floor(dateNow / 1000);
+    // const today = Math.floor(dateNow / 1000);
 
     const isButtonSubmitEnable = !plant.plantName || !plant.wateringTime;
  
@@ -28,16 +28,16 @@ function AddPlant({ handleAddPlant }) {
     }
 
     function handleWateringTime(e) {
-        let frequencyToWaterInSeconds = plant.frequencyToWaterInSeconds;
+        let frequencyToWater = plant.frequencyToWater;
         
         if(e.target.value === "Every day"){
-            frequencyToWaterInSeconds = 60;
+            frequencyToWater = 60;
         } 
             else if (e.target.value === "Every three days"){
-                frequencyToWaterInSeconds = 259200;
+                frequencyToWater = 259200;
             }   
                 else{
-                    frequencyToWaterInSeconds = 604800;
+                    frequencyToWater = 604800;
                 }
 
         setPlant({
@@ -45,7 +45,7 @@ function AddPlant({ handleAddPlant }) {
             wateringTime: e.target.value,
             lastWaterDate: today,
 
-            frequencyToWaterInSeconds: frequencyToWaterInSeconds
+            frequencyToWater: frequencyToWater
         }); 
         
     }

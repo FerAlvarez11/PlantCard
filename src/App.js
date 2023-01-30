@@ -17,7 +17,7 @@ function App() {
       id: nanoid(),
       plantName: plant.plantName,
       wateringTime: plant.wateringTime,
-      frequencyToWaterInSeconds: plant.frequencyToWaterInSeconds,
+      frequencyToWater: plant.frequencyToWater,
       notes: plant.notes,
       lastWaterDate : plant.lastWaterDate
     };

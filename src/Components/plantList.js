@@ -4,8 +4,6 @@ import {Link} from "react-router-dom";
 
 function PlantList({ plants }) {    
 
-    console.log(plants);
-    
     return (
         <div className="container">  
             <div className="columns">
@@ -24,7 +22,7 @@ function PlantList({ plants }) {
                             id={plant.id}
                             plantName={plant.plantName}
                             wateringTime={plant.wateringTime}
-                            frequencyToWaterInSeconds={plant.frequencyToWaterInSeconds}
+                            frequencyToWater={plant.frequencyToWater}
                             lastWaterDate={plant.lastWaterDate}                            
                         />
                     )}
