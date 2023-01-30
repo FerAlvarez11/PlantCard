@@ -9,18 +9,18 @@ function Homepage() {
             </div>
             
             <section className="hero is-primary is-fullheight has-text-centered">
-                    <div className="my-5">
-                        <p className="title">
-                            Easily track your plants watering
-                        </p>
-                        <p className="subtitle">
-                            Primary subtitle
-                        </p>
-                        <Link to="/add-plant">
-                            <button className="button is-primary is-inverted is-large">Add Plant</button>
-                        </Link>
-                    </div>
-                </section>
+                <div className="my-5">
+                    <p className="title">
+                        Easily track your plants watering
+                    </p>
+                    <p className="subtitle">
+                        Primary subtitle
+                    </p>
+                    <Link to="/add-plant">
+                        <button className="button is-primary is-inverted is-large">Add Plant</button>
+                    </Link>
+                </div>
+            </section>
         </>
         
     )
