@@ -21,7 +21,7 @@ function PlantList({ plants }) {
                             id={plant.id}
                             plantName={plant.plantName}
                             wateringTime={plant.wateringTime}
-                            freuencyToWaterInSeconds={plant.frequencyToWaterInSeconds}
+                            frequencyToWaterInSeconds={plant.frequencyToWaterInSeconds}
                             lastWaterDate={plant.lastWaterDate}                            
                         />
                     )}
