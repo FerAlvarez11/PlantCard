@@ -3,6 +3,9 @@ import {Link} from "react-router-dom";
 
 
 function PlantList({ plants }) {    
+
+    console.log(plants);
+    
     return (
         <div className="container">  
             <div className="columns">

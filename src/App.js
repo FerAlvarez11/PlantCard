@@ -10,14 +10,7 @@ import "bulma/css/bulma.min.css"
 
 
 function App() {    
-  const [plants, setPlants] = useState([{
-    id: nanoid(),
-    plantName: "Mart",
-    wateringTime: "Every day",
-    frequencyToWaterInSeconds: 3526,
-    notes: "notes",
-    lastWaterDate:"15-03"
-  }])
+  const [plants, setPlants] = useState([]);
 
   const addPlant = (plant) => {
     const newPlant = {
