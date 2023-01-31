@@ -37,13 +37,11 @@ function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater }) {
                 </figure>
                 <div className="media-content">
                     <div className="content px-4">
-                        <strong className="mb-3 is-size-3">{plantName}</strong><br/>   
+                        <strong className="mb-1 is-size-3">{plantName}</strong><br/>   
                         <div className="">
                             <small>Watering time: {wateringTime}</small>
                         </div>
-                        {/* <progress className="progress is-primary mt-2 mb-0" value={percentageInteger} max="100">`${percentageInteger}%`</progress> */}
-                        <WateringTime percentage={percentageInteger} dateToWater={dateToWater} actualDate={actualDate}/>
-                        <p className="tag is-primary is-light is-large mt-3 has-background-success-light">3 days to water</p>
+                        <WateringTime percentage={percentageInteger} dateToWater={dateToWater} actualDate={actualDate}/>                        
                     </div>
                         
                     <nav className="level px-4">
