@@ -15,8 +15,6 @@ function AddPlant({ handleAddPlant }) {
 
     const today = Date.now();
 
-    // const today = Math.floor(dateNow / 1000);
-
     const isButtonSubmitEnable = !plant.plantName || !plant.wateringTime;
  
     function handlePlantName(e) {
@@ -32,13 +30,11 @@ function AddPlant({ handleAddPlant }) {
         
         if(e.target.value === "Every day"){
             frequencyToWater = 60;
-        } 
-            else if (e.target.value === "Every three days"){
-                frequencyToWater = 259200;
-            }   
-                else{
-                    frequencyToWater = 604800;
-                }
+        } else if (e.target.value === "Every three days"){
+            frequencyToWater = 259200;
+        } else {
+            frequencyToWater = 604800;
+        }
 
         setPlant({
             ...plant,
@@ -56,14 +52,12 @@ function AddPlant({ handleAddPlant }) {
             notes: e.target.value
         });
         
-    }
-    
+    }    
     
     const handleOnSubmit = () => {
         handleAddPlant(plant);
         navigate("/plant-list");
     };
-
     
     return (
         <div className="container content is-medium"> 

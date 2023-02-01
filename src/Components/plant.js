@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import WateringTime from "./wateringTime";
 
 
-function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater }) {
+function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, restartTimePlant, id }) {
     const date = Date.now();
 
     const [actualDateState, setActualDateState] = useState(date);
@@ -18,6 +18,12 @@ function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater }) {
     const percentage =  diffBetwenActualAndCreationDate * 100 / frequencyToWater;
     const percentageInverted = 100 - percentage / 100 * 100;
     const percentageInteger = Math.trunc(percentageInverted);
+
+
+    const handleOnSubmit = () => {
+        restartTimePlant(id);
+        console.log(id);
+    };
 
     return (
         <div className="container">  
@@ -49,7 +55,7 @@ function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater }) {
                             <button className=" level-right button button is-text has-text-info">View notes</button>                         
                         </div>
                         <div className="level-left">
-                            <button className=" level-right button is-primary is-outlined">Water</button>                         
+                            <button onClick={handleOnSubmit} className=" level-right button is-primary is-outlined">Water</button>                         
                         </div>
                     </nav>
                 </div>                  
