@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 
 function AddPlant({ handleAddPlant }) {
@@ -29,11 +29,11 @@ function AddPlant({ handleAddPlant }) {
         let frequencyToWater = plant.frequencyToWater;
         
         if(e.target.value === "Every day"){
-            frequencyToWater = 60;
+            frequencyToWater = 30000;
         } else if (e.target.value === "Every three days"){
-            frequencyToWater = 259200;
+            frequencyToWater = 259200000;
         } else {
-            frequencyToWater = 604800;
+            frequencyToWater = 604800000;
         }
 
         setPlant({
@@ -64,9 +64,9 @@ function AddPlant({ handleAddPlant }) {
             <div className="columns">  
                 <div className="column"></div>
                 <div className="column box px-6 mt-5">
-                    
-                    <div className="mt-4 has-text-centered"><img src='small-logo.png' alt="Hi" /></div>
-
+                    <Link to="/plant-list">
+                        <div className="mt-4 has-text-centered"><img src='small-logo.png' alt="Hi" /></div>
+                    </Link>                    
                     <div className="columns mt-6">
                         <div className="column is-two-thirds">
                             <h1 className="has-text-primary">Add a plant to your plant collection</h1>

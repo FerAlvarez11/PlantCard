@@ -3,32 +3,34 @@ import { format } from 'date-fns'
 
 function WateringTime({ percentage, dateToWater, actualDate }) {
     let waterngTimeState;
-    const hasPastTimeWarningMessage = actualDate >= dateToWater + 86400000;
-
+    const hasPastTimeWarningMessage = actualDate >= dateToWater + 30000;
     const dateObject = new Date(dateToWater);
-
 
     if(percentage > 0){
         waterngTimeState = (
             <span>
                 <progress className="progress is-primary mt-2 mb-0" value={percentage} max="100">`${percentage}%`</progress> 
-                <p className="tag is-primary is-light is-large mt-3 has-background-success-light">Next Watering day is {format(dateObject, 'PPPP')}</p>
+                <article className="message is-primary">
+                    <div className="message-body mt-3">
+                        <strong>Next Watering day is: {format(dateObject, 'PPPP')}</strong>
+                    </div>
+                </article>
             </span>
         )
         
         
     } else if (hasPastTimeWarningMessage){
         waterngTimeState = (
-            <article className="message is-danger">
+            <article className="message is-danger mt-3">
                 <div className="message-body">
-                    <strong>Watering day was {format(dateObject, 'PPPP')}</strong>
+                    <strong>Watering day was: {format(dateObject, 'PPPP')}</strong>
                 </div>
             </article>
         )
 
     } else if (percentage < 0) {
         waterngTimeState = (
-            <article className="message is-warning">
+            <article className="message is-warning mt-3">
                 <div className="message-body">
                     <strong>Watering time is today!</strong>
                 </div>

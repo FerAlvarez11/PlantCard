@@ -37,12 +37,26 @@ function App() {
         }
     }
 
+    const deletePlant = (id) => {
+        const index = plants.findIndex(object => {
+            return object.id === id;
+        });
+
+        if(index !== -1){                 
+            let plantsCopy = [...plants];
+            plantsCopy.splice(index, 1);  
+            setPlants(plantsCopy);        
+        }
+
+        console.log(id, "im working!!");
+    }
+
     return (    
         <div className="App">   
             <Routes>
             <Route path="/" element={<Homepage/>}/>
             <Route path="/add-plant" element={<AddPlant handleAddPlant={addPlant}/>}/>
-            <Route path="/plant-list" element={<PlantList plants={plants} restartTimePlant={restartTimePlant}/>}/>
+            <Route path="/plant-list" element={<PlantList plants={plants} restartTimePlant={restartTimePlant} deletePlant={deletePlant}/>}/>
             </Routes>    
         </div>
     );

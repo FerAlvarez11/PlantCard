@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import WateringTime from "./wateringTime";
 
 
-function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, restartTimePlant, id }) {
+function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, restartTimePlant, id, deletePlant }) {
     const date = Date.now();
 
     const [actualDateState, setActualDateState] = useState(date);
@@ -20,22 +20,27 @@ function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, resta
     const percentageInteger = Math.trunc(percentageInverted);
 
 
-    const handleOnSubmit = () => {
+    const handlRestartTimePlant = () => {
         restartTimePlant(id);
-        console.log(id);
     };
+
+    
+    const handleDeletePlant = () => {
+        deletePlant(id);
+    };
+
 
     return (
         <div className="container">  
-          <h1>Creation date is {lastWaterDate}</h1>
+          {/* <h1>Creation date is {lastWaterDate}</h1>
           <h1>actual date is: {actualDate}</h1>
           <h1>frequency to water in seconds: {frequencyToWater}</h1>
           <h1>time to water : {dateToWater}</h1>          
           <h1>percentage is : {percentage}</h1>
           <h1>{percentageInteger}</h1>
-          <h1>difference is {diffBetwenActualAndCreationDate}</h1>
+          <h1>difference is {diffBetwenActualAndCreationDate}</h1> */}
 
-            <article className="media box m-4">
+            <article className="media box mb-3">
                 <figure className="media-left">
                     <p className="image is-64x64">
                     <img src='avatar.png' alt="Hi" />
@@ -55,10 +60,14 @@ function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, resta
                             <button className=" level-right button button is-text has-text-info">View notes</button>                         
                         </div>
                         <div className="level-left">
-                            <button onClick={handleOnSubmit} className=" level-right button is-primary is-outlined">Water</button>                         
+                            <button onClick={handlRestartTimePlant} className=" level-right button is-primary is-outlined">Water</button>                         
                         </div>
-                    </nav>
-                </div>                  
+                    </nav>                      
+                </div>  
+                <div class="media-right">
+                        <button onClick={handleDeletePlant} class="delete"></button>
+                </div>        
+          
             </article>            
         </div>
 
