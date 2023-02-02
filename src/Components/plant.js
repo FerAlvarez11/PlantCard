@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import WateringTime from "./wateringTime";
+import NotesList from "./notesList";
 
 
 function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, restartTimePlant, id, deletePlant }) {
@@ -42,8 +43,9 @@ function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, resta
 
             <article className="media box mb-3">
                 <figure className="media-left">
-                    <p className="image is-64x64">
-                    <img src='avatar.png' alt="Hi" />
+                    <p className="image is-72x72">
+                        <img src='avatar.png' alt="Hi" />
+                        <button onClick={handlRestartTimePlant} className=" mt-4 level-right button is-primary is-outlined">Water</button>    
                     </p>
                 </figure>
                 <div className="media-content">
@@ -54,15 +56,8 @@ function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, resta
                         </div>
                         <WateringTime percentage={percentageInteger} dateToWater={dateToWater} actualDate={actualDate}/>                        
                     </div>
-                        
-                    <nav className="level px-4">
-                        <div className="level-right">
-                            <button className=" level-right button button is-text has-text-info">View notes</button>                         
-                        </div>
-                        <div className="level-left">
-                            <button onClick={handlRestartTimePlant} className=" level-right button is-primary is-outlined">Water</button>                         
-                        </div>
-                    </nav>                      
+
+                    <nav><NotesList/></nav>                      
                 </div>  
                 <div class="media-right">
                         <button onClick={handleDeletePlant} class="delete"></button>
