@@ -16,7 +16,7 @@ function App() {
             plantName: plant.plantName,
             wateringTime: plant.wateringTime,
             frequencyToWater: plant.frequencyToWater,
-            notes: plant.notes,
+            notes: [plant.notes],
             lastWaterDate: plant.lastWaterDate
         };
 
@@ -48,15 +48,30 @@ function App() {
             setPlants(plantsCopy);        
         }
 
-        console.log(id, "im working!!");
+  
+    }
+
+    const addNote = (id, note) => {
+        const index = plants.findIndex(object => {
+            return object.id === id;
+        });
+
+        if(index !== -1){                 
+            let plantsCopy = [...plants];
+            let plantToAddNote = plantsCopy[index].notes;
+
+            plantToAddNote.push(note);
+
+            setPlants(plantsCopy);   
+        }    
     }
 
     return (    
         <div className="App">   
             <Routes>
-            <Route path="/" element={<Homepage/>}/>
-            <Route path="/add-plant" element={<AddPlant handleAddPlant={addPlant}/>}/>
-            <Route path="/plant-list" element={<PlantList plants={plants} restartTimePlant={restartTimePlant} deletePlant={deletePlant}/>}/>
+                <Route path="/" element={<Homepage/>}/>
+                <Route path="/add-plant" element={<AddPlant handleAddPlant={addPlant}/>}/>
+                <Route path="/plant-list" element={<PlantList plants={plants} restartTimePlant={restartTimePlant} deletePlant={deletePlant} addNote={addNote}/>}/>
             </Routes>    
         </div>
     );

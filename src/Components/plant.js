@@ -4,13 +4,13 @@ import WateringTime from "./wateringTime";
 import NotesList from "./notesList";
 
 
-function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, restartTimePlant, id, deletePlant }) {
+function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, restartTimePlant, id, deletePlant, addNote, notes }) {
     const date = Date.now();
 
     const [actualDateState, setActualDateState] = useState(date);
 
     useEffect(() => {
-        setInterval(() => setActualDateState(Date.now()), 600);
+        setInterval(() => setActualDateState(Date.now()), 600000);
     }, []);    
 
     const actualDate = actualDateState;
@@ -57,10 +57,10 @@ function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, resta
                         <WateringTime percentage={percentageInteger} dateToWater={dateToWater} actualDate={actualDate}/>                        
                     </div>
 
-                    <nav><NotesList/></nav>                      
+                    <nav><NotesList id={id} addNote={addNote} notes={notes}/></nav>                      
                 </div>  
-                <div class="media-right">
-                        <button onClick={handleDeletePlant} class="delete"></button>
+                <div className="media-right">
+                        <button onClick={handleDeletePlant} className="delete"></button>
                 </div>        
           
             </article>            

@@ -2,7 +2,7 @@ import Plant from "./plant";
 import {Link} from "react-router-dom";
 
 
-function PlantList({ plants, restartTimePlant, deletePlant }) {    
+function PlantList({ plants, restartTimePlant, deletePlant, addNote }) {    
 
     return (
         <div className="container">  
@@ -25,7 +25,9 @@ function PlantList({ plants, restartTimePlant, deletePlant }) {
                             frequencyToWater={plant.frequencyToWater}
                             lastWaterDate={plant.lastWaterDate}   
                             restartTimePlant={restartTimePlant}  
-                            deletePlant={deletePlant}            
+                            deletePlant={deletePlant}   
+                            notes={plant.notes}    
+                            addNote={addNote}     
                         />
                     )}
                 </div>
