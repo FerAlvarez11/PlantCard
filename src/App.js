@@ -1,8 +1,8 @@
 import { useState } from "react";
-import PlantList from "./Components/plantList";
+import PlantList from "./Components/PlantList";
 import { nanoid } from 'nanoid';
 import { Routes, Route } from "react-router-dom";
-import AddPlant from "./Components/addPlant";
+import AddPlant from "./Components/AddPlant";
 import Homepage from "./Components/Homepage";
 import "./App.css";
 import "bulma/css/bulma.min.css"

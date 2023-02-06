@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Note from "./note";
+import Note from "./Note";
 
 function NotesList({id, addNote, notes}) {
     const [isNotesListOpen, setIsNotesListOpen] = useState(false);

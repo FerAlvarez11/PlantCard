@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import WateringTime from "./wateringTime";
-import NotesList from "./notesList";
+import WateringTime from "./WateringTime";
+import NotesList from "./NotesList";
 
 
 function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, restartTimePlant, id, deletePlant, addNote, notes }) {

@@ -1,4 +1,4 @@
-import Plant from "./plant";
+import Plant from "./Plant";
 import {Link} from "react-router-dom";
 
 

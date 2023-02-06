@@ -1,0 +1,19 @@
+.arrow {
+    display:block;
+    width: 2vw;
+    height: 2vw;
+    border: 0.5vw solid;
+    border-color: #adf0e6 transparent transparent #adf0e6;
+}
+
+.arrow:hover {
+    border-color: #ffffff transparent transparent #ffffff;
+}
+
+.arrow.left-arrow {
+    transform: rotate(-45deg);
+}
+
+.arrow.right-arrow {
+    transform: rotate(135deg);
+}
