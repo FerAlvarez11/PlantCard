@@ -15,19 +15,14 @@ function NotesList({id, addNote, notes}) {
     function handleNotes(e) {   
         newNote= e.target.value;        
     }  
-
-    // const isButtonSubmitEnable = !newNote;
-
-    console.log(newNote.length, "newnote");
     
     const handleAddNewNote = () => {
         addNote(id, newNote);
-        console.log(notes);
     }
 
     return (
         <div>  
-            <button onClick= {()=>setIsNotesListOpen(!isNotesListOpen)} className=" level-right button is-text has-text-info mb-5 dropdown-menu2">{buttonViewNote}</button>             
+            <button onClick= {()=>setIsNotesListOpen(!isNotesListOpen)} className=" level-right button is-text has-text-info dropdown-menu2">{buttonViewNote}</button>             
             
             {isNotesListOpen && (
                 <div>     

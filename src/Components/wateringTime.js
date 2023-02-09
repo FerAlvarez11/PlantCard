@@ -11,8 +11,8 @@ function WateringTime({ percentage, dateToWater, actualDate }) {
             <span>
                 <progress className="progress is-primary mt-2 mb-0" value={percentage} max="100">`${percentage}%`</progress> 
                 <article className="message is-primary">
-                    <div className="message-body mt-3">
-                        <strong>Next Watering day is: {format(dateObject, 'PPPP')}</strong>
+                    <div className="message-body mt-3 p-2">
+                        <small className="has-text-weight-bold">Next Watering day is: <br/> {format(dateObject, 'PPPP')}</small>
                     </div>
                 </article>
             </span>
@@ -21,18 +21,18 @@ function WateringTime({ percentage, dateToWater, actualDate }) {
         
     } else if (hasPastTimeWarningMessage){
         waterngTimeState = (
-            <article className="message is-danger mt-3">
-                <div className="message-body">
-                    <strong>Watering day was: {format(dateObject, 'PPPP')}</strong>
+            <article className="message is-danger mt-1">
+                <div className="message-body p-2">
+                    <small className="has-text-weight-bold">Watering day was: <br/> {format(dateObject, 'PPPP')}</small>
                 </div>
             </article>
         )
 
     } else if (percentage < 0) {
         waterngTimeState = (
-            <article className="message is-warning mt-3">
-                <div className="message-body">
-                    <strong>Watering time is today!</strong>
+            <article className="message is-warning mt-1">
+                <div className="message-body p-2">
+                    <small className="has-text-weight-bold">Watering day is: <br/> Today!</small>
                 </div>
             </article>
         )

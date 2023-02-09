@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import Carousel from "./Carousel";
+import "../App.css";
 
 function AddPlant({ handleAddPlant }) {
     const [plant, setPlant] = useState({
@@ -11,8 +12,14 @@ function AddPlant({ handleAddPlant }) {
         lastWaterDate: ""
     });
 
+    var carousselImages =[
+        {img:'plant-1.png'}, 
+        {img:'plant-2.png'}, 
+        {img:'plant-3.png'}, 
+        {img:'plant-4.png'}
+    ];            
     const navigate = useNavigate();
-
+ 
     const today = Date.now();
 
     const isButtonSubmitEnable = !plant.plantName || !plant.wateringTime;
@@ -60,29 +67,20 @@ function AddPlant({ handleAddPlant }) {
     };
     
     return (
-        <div className="container content is-medium"> 
-            <div className="columns">  
-                <div className="column"></div>
-                <div className="column box px-6 mt-5">
-                    <Link to="/plant-list">
-                        <div className="mt-4 has-text-centered"><img src='small-logo.png' alt="Hi" /></div>
-                    </Link>                    
-                    <div className="columns mt-6">
-                        <div className="column is-two-thirds">
-                            <h1 className="has-text-primary">Add a plant to your plant collection</h1>
-                        </div>
-                        <div className="column"> 
-                            <div className="mt-2 has-text-centered"><img src='flat-icons-set-pot-plants-garden-flowers-herbs_1416-286.webp' alt="Hi" /></div>
-                        </div>
-                    </div>
-                   
-                    <div className="field mt-3">     
-                        <label 
-                            className="label mt-5 is-size-4"
-                            htmlFor="username">What is your plant's name?
-                        </label>
-                        <div className="is-one-fifth">
+        <div className="mt-6">
+            <div className="has-text-centered">
+                <div className=""><img src='logo-black.png' alt="Hi" /></div>
+            </div>
+            <div className="columns is-centered m-5">           
+                <div className="column">
+                    <article className="message height-width-full is-primary">
+                        <p className="message-header">1. Select a name for your plant</p>
+                        <div className="message-body">
                             <div className="control">
+                                <label 
+                                    className="label mt-5 is-size-6"
+                                    htmlFor="username">What is your plant's name?
+                                </label>
                                 <input 
                                     className="input is-rounded"
                                     id="plant-name" 
@@ -92,71 +90,81 @@ function AddPlant({ handleAddPlant }) {
                                     required
                                     type="text"
                                 />
+                                <label className="label mt-5 mb-0" htmlFor="notes">Write some notes</label><p className="help mt-0">(Optional)</p>
+        
+                                <textarea 
+                                    className="textarea"
+                                    id="notes" 
+                                    placeholder="Write some notes about your plant" 
+                                    value={plant.notes} 
+                                    onChange={handleNotes}
+                                />
                             </div>
                         </div>
-                    </div>
-
-                    <label className="label mt-4">How often do you normally water the plant?</label>
-                        <div className="control">
-                          
-                                    <label className="radio" htmlFor="everyday">
-                                        <input 
-                                            className="m-1"
-                                            type="radio" 
-                                            id="everyday" 
-                                            name="amount" 
-                                            value="Every day" 
-                                            onChange={handleWateringTime}
-                                        />
-                                        Every day
-                                    </label><br/>
-                 
-                     
-                                    <label className="radio" htmlFor="everythreedays">
-                                        <input 
-                                            className="m-1"
-                                            type="radio" 
-                                            id="everythreedays" 
-                                            name="amount" 
-                                            value="Every three days" 
-                                            onChange={handleWateringTime}
-                                        />
-                                        Every three days
-                                    </label>
-
-                                    <br/>    
-                        
-                                    <label className="radio" htmlFor="onceaweek">
-                                        <input 
-                                            className="m-1"
-                                            type="radio" 
-                                            id="onceaweek" 
-                                            name="amount" 
-                                            value="Once a week" 
-                                            onChange={handleWateringTime}
-                                        />
-                                        Once a week
-                                    </label>                     
-                        </div>
-
-                    <label className="label mt-4 mb-0" htmlFor="notes">Write some notes</label><p className="help mt-0">(Optional)</p>
-            
-                    <textarea 
-                        className="textarea"
-                        id="notes" 
-                        placeholder="Write some notes about your plant" 
-                        value={plant.notes} 
-                        onChange={handleNotes}
-                    />
-                    <div className="has-text-centered mt-4">
-                        <button className="button is-primary is-large m-4 centered" type="submit" disabled={isButtonSubmitEnable} onClick={handleOnSubmit}>Submit</button>
-                    </div>
+                    </article>
                 </div>
-                <div className="column"></div>
+                <div className="column">
+                    <article className="message height-width-full is-primary">
+                        <p className="message-header">2. Select a watering time</p>
+                        <div className="message-body">
+                            <div className="control">
+                                <label 
+                                    className="label m-5 is-size-6"
+                                    htmlFor="username">How often do your plant needs 
+                                    to be watered?
+                                </label>
+                                <label className="radio m-5" htmlFor="everyday">
+                                    <input 
+                                        className="m-1"
+                                        type="radio" 
+                                        id="everyday" 
+                                        name="amount" 
+                                        value="Every day" 
+                                        onChange={handleWateringTime}
+                                    />
+                                    Every day
+                                </label><br/>            
+                
+                                <label className="radio m-5" htmlFor="everythreedays">
+                                    <input 
+                                        className="m-1 "
+                                        type="radio" 
+                                        id="everythreedays" 
+                                        name="amount" 
+                                        value="Every three days" 
+                                        onChange={handleWateringTime}
+                                    />
+                                    Every three days
+                                </label><br/>    
+                
+                                <label className="radio m-5" htmlFor="onceaweek">
+                                    <input 
+                                        className="m-1"
+                                        type="radio" 
+                                        id="onceaweek" 
+                                        name="amount" 
+                                        value="Once a week" 
+                                        onChange={handleWateringTime}
+                                    />
+                                    Once a week
+                                </label>                     
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div className="column">
+                    <article className="message height-width-full is-primary">
+                        <p className="message-header">3. Choose a picture</p>
+                        <div className="message-body">
+                            <Carousel carrouselData={carousselImages}/>
+                        </div>
+                    </article>
+                </div>
             </div>
-
+            <div className="has-text-centered mt-4">
+                <button className="button is-warning is-rounded is-large" type="submit" disabled={isButtonSubmitEnable} onClick={handleOnSubmit}>Submit</button>
+            </div>
         </div>
-
     );
 }
   

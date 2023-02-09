@@ -46,9 +46,7 @@ function App() {
             let plantsCopy = [...plants];
             plantsCopy.splice(index, 1);  
             setPlants(plantsCopy);        
-        }
-
-  
+        }  
     }
 
     const addNote = (id, note) => {

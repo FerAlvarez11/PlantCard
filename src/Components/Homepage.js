@@ -3,6 +3,13 @@ import Carousel from "./Carousel";
 
 
 function Homepage() {
+
+    var carousselImages =[
+        {img:'carousel-homepage-1.png', title:"Dont forget anymore when is the rigth time", subtitle:"All thanks to fer and because she is a great programer, the best one!"}, 
+        {img:'carousel-homepage-2.png', title:"You can also write notes", subtitle:"Your plant will be super happy, the happiest plant in the plant world"},
+        {img:'carousel-homepage-3.png', title:"Set a time and we will do the rest", subtitle:"If you water your plant at the rigth time all is going to be good, really good!"}
+    ];
+
     return (
         <div className="has-background-primary section is-large">
             <div className="columns is-vcentered">
@@ -20,7 +27,7 @@ function Homepage() {
                     </Link>
                 </div>
                 <div className="column is-one-quarter">
-                    <Carousel/>
+                    <Carousel carrouselData={carousselImages}/>
                 </div>
                 <div className="column is-one-fifth"></div>
             </div>
