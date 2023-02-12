@@ -1,9 +1,29 @@
 import Plant from "./Plant";
 import {Link} from "react-router-dom";
 import "../App.css";
+import { useState, useEffect } from "react";
 
 
-function PlantList({ plants, restartTimePlant, deletePlant, addNote }) {    
+function PlantList({ restartTimePlant, addNote }) {     
+    
+    const data = localStorage.getItem('plants');
+    const [plants, setPlants] = useState(JSON.parse(data));
+    
+    const deletePlant = (id) => {
+        const index = plants.findIndex(object => {
+            return object.id === id;
+        });
+
+        if(index !== -1){                 
+            let plantsCopy = [...plants];
+            plantsCopy.splice(index, 1);  
+            setPlants(plantsCopy);        
+        }  
+    }
+
+    useEffect(() => {
+        window.localStorage.setItem('plants', JSON.stringify(plants))
+    }, [plants]);
 
     return (
         <div className="container">   
@@ -26,7 +46,7 @@ function PlantList({ plants, restartTimePlant, deletePlant, addNote }) {
                         restartTimePlant={restartTimePlant}  
                         deletePlant={deletePlant}   
                         notes={plant.notes}    
-                        addNote={addNote}     
+                        addNote={addNote}                           
                     />
                 )}
             </div>                   

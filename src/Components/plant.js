@@ -5,7 +5,7 @@ import NotesList from "./NotesList";
 import "../App.css";
 
 
-function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, restartTimePlant, id, deletePlant, addNote, notes }) {
+function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, restartTimePlant, id, deletePlant, addNote, notes }) {     
     const date = Date.now();
 
     const [actualDateState, setActualDateState] = useState(date);
@@ -20,12 +20,10 @@ function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, resta
     const percentage =  diffBetwenActualAndCreationDate * 100 / frequencyToWater;
     const percentageInverted = 100 - percentage / 100 * 100;
     const percentageInteger = Math.trunc(percentageInverted);
-
  
     const handlRestartTimePlant = () => {
         restartTimePlant(id);
     };
-
     
     const handleDeletePlant = () => {
         deletePlant(id);

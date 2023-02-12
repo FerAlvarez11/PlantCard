@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Carousel from "./Carousel";
 import "../App.css";
 
-function AddPlant({ handleAddPlant }) {
+function AddPlant() {
+
     const [plant, setPlant] = useState({
         plantName: "",
         wateringTime: "",
@@ -62,8 +63,11 @@ function AddPlant({ handleAddPlant }) {
     }    
     
     const handleOnSubmit = () => {
-        handleAddPlant(plant);
-        navigate("/plant-list");
+        const jsonPlants = localStorage.getItem('plants');
+        const plants = JSON.parse(jsonPlants);
+        plants.push(plant);
+        window.localStorage.setItem('plants', JSON.stringify(plants))
+        navigate("/plant-list");        
     };
     
     return (
