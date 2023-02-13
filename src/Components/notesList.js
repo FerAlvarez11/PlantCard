@@ -1,52 +1,78 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Note from "./Note";
 
-function NotesList({id, addNote, notes}) {
-    const [isNotesListOpen, setIsNotesListOpen] = useState(false);
+function NotesList({id, notesOpen}) {
+        
+    const data = localStorage.getItem('plants');
+    const dataArray = JSON.parse(data);
 
-    let buttonViewNote = "View notes";
+    const [plants, setPlants] = useState(dataArray);
 
-    if(isNotesListOpen === true){
-        buttonViewNote = "Hide notes";
-    } 
+    const [newNote, setNewNote] = useState("");
 
-    let newNote="";
-
-    function handleNotes(e) {   
-        newNote= e.target.value;        
+    const isButtonSubmitEnable = !newNote;
+ 
+      
+    function handleNotes(e) {    
+        setNewNote(e.target.value);   
     }  
-    
-    const handleAddNewNote = () => {
-        addNote(id, newNote);
+
+    const handleAddNote = () => {
+        const index = plants.findIndex(object => {
+            return object.id === id;
+        });
+
+        if(index !== -1){      
+            let newDataArrayCopy = [...plants];           
+            let plantToAddNote = newDataArrayCopy[index].notes;
+            plantToAddNote.push(newNote);     
+            setPlants(newDataArrayCopy);    
+            setNewNote("");
+        }  
     }
 
-    return (
-        <div>  
-            <button onClick= {()=>setIsNotesListOpen(!isNotesListOpen)} className=" level-right button is-text has-text-info dropdown-menu2">{buttonViewNote}</button>             
-            
-            {isNotesListOpen && (
-                <div>     
-                    {notes.map((eachNote, i) =>
-                        <Note 
-                            eachNote={eachNote}
-                            key={`plant_${i}`}
+    const index = plants.findIndex(object => {
+        return object.id === id;
+    });
+
+    let plantNotes = plants[index].notes;   
+
+    useEffect(() => {
+        window.localStorage.setItem('plants', JSON.stringify(plants))
+    }, [plants]);
+
+
+    return (      
+        <div>     
+            <div className="modal is-active">
+                <div className="modal-background"></div>
+                <div className="modal-card">
+                    <header className="modal-card-head">
+                        <p className="modal-card-title">Notes</p>
+                        <button className="delete" onClick= {()=>notesOpen()} aria-label="close"></button>
+                    </header>
+                    <section className="modal-card-body">
+                        {plantNotes.map((eachNote, i) =>
+                            <Note 
+                                eachNote={eachNote}
+                                key={`plant_${i}`}
+                            />
+                        )}
+                        <label className="label mt-4 mb-0" htmlFor="notes">Leave a note</label> 
+                        <textarea 
+                            className="textarea"
+                            id="notes" 
+                            placeholder="Write a note about your plant" 
+                            onChange={handleNotes}
+                            value={newNote}
                         />
-                    )}
-                    <label className="label mt-4 mb-0" htmlFor="notes">Leave a note</label> 
-                    <textarea 
-                        className="textarea"
-                        id="notes" 
-                        placeholder="Write a note about your plant" 
-                        onChange={handleNotes}
-                    />
-                    <div className="has-text-centered mt-4">
-                        <button onClick={handleAddNewNote} className="button is-warning" type="submit" >Submit</button>                    
-                    </div>                
-                </div>           
-            )}     
-        </div>
-                  
-        
+                    </section>
+                    <footer className="modal-card-foot">                              
+                        <button onClick={handleAddNote} disabled={isButtonSubmitEnable} className="button is-success">Save note</button>
+                    </footer>
+                </div>
+            </div>
+        </div>      
     )
 }
 

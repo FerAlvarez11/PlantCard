@@ -1,18 +1,21 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import WateringTime from "./WateringTime";
-import NotesList from "./NotesList";
 import "../App.css";
+import NotesList from "./NotesList";
 
 
-function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, restartTimePlant, id, deletePlant, addNote, notes }) {     
+function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWater, restartTimePlant, id, deletePlant, notes }) {     
     const date = Date.now();
+
 
     const [actualDateState, setActualDateState] = useState(date);
 
     useEffect(() => {
-        setInterval(() => setActualDateState(Date.now()), 600000);
+        setInterval(() => setActualDateState(Date.now()), 6000000);
     }, []);    
+
+    const [isNotesListOpen, setIsNotesListOpen] = useState(false);
 
     const actualDate = actualDateState;
     const dateToWater = lastWaterDate + frequencyToWater;
@@ -22,12 +25,25 @@ function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, resta
     const percentageInteger = Math.trunc(percentageInverted);
  
     const handlRestartTimePlant = () => {
-        restartTimePlant(id);
+        const index = plants.findIndex(object => {
+            return object.id === id;
+        });
+
+        if(index !== -1){                 
+            let plantsCopy = [...plants];
+            plantsCopy[index].lastWaterDate = Date.now();   
+            restartTimePlant(plantsCopy); 
+
+        } 
     };
     
     const handleDeletePlant = () => {
         deletePlant(id);
     };
+
+    const closeNotesButton = () => {
+        setIsNotesListOpen(!isNotesListOpen)
+    }
 
     return (        
         <div className="column max-width">  
@@ -60,7 +76,10 @@ function Plant({ plantName, wateringTime, lastWaterDate, frequencyToWater, resta
                         <button onClick={handlRestartTimePlant} className="button is-primary is-outlined is-rounded">Water now</button>
                     </div>
                     <div className="level-item">
-                        <div><NotesList id={id} addNote={addNote} notes={notes}/></div>                
+                        <button onClick= {()=>setIsNotesListOpen(!isNotesListOpen)} className=" level-right button is-text has-text-info dropdown-menu2">View notes</button>  
+                        {isNotesListOpen && (     
+                            <NotesList notes={notes} id={id} notesOpen={closeNotesButton}/>
+                        )}   
                     </div>
                 </nav> 
             </article>            

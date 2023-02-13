@@ -4,9 +4,10 @@ import "../App.css";
 import { useState, useEffect } from "react";
 
 
-function PlantList({ restartTimePlant, addNote }) {     
+function PlantList() {     
     
     const data = localStorage.getItem('plants');
+
     const [plants, setPlants] = useState(JSON.parse(data));
     
     const deletePlant = (id) => {
@@ -20,6 +21,11 @@ function PlantList({ restartTimePlant, addNote }) {
             setPlants(plantsCopy);        
         }  
     }
+
+    const restartTimePlant = (plantsRestarted) => {        
+        setPlants(plantsRestarted);     
+    }   
+
 
     useEffect(() => {
         window.localStorage.setItem('plants', JSON.stringify(plants))
@@ -37,6 +43,7 @@ function PlantList({ restartTimePlant, addNote }) {
             <div className="columns is-centered is-multiline">
                 {plants.map((plant, i) => 
                     <Plant
+                        plants= {plants}
                         key={`plant_${i}`}
                         id={plant.id}
                         plantName={plant.plantName}
@@ -45,8 +52,7 @@ function PlantList({ restartTimePlant, addNote }) {
                         lastWaterDate={plant.lastWaterDate}   
                         restartTimePlant={restartTimePlant}  
                         deletePlant={deletePlant}   
-                        notes={plant.notes}    
-                        addNote={addNote}                           
+                        notes={plant.notes}                        
                     />
                 )}
             </div>                   

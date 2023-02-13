@@ -2,14 +2,16 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Carousel from "./Carousel";
 import "../App.css";
+import { nanoid } from 'nanoid';
 
 function AddPlant() {
 
     const [plant, setPlant] = useState({
+        id: nanoid(),
         plantName: "",
         wateringTime: "",
         frequencyToWater: null,
-        notes: "",
+        notes: [""],
         lastWaterDate: ""
     });
 
@@ -28,8 +30,8 @@ function AddPlant() {
     function handlePlantName(e) {
         setPlant({
             ...plant,
-            plantName: e.target.value
-            
+            plantName: e.target.value ,
+            id: nanoid()           
         });
     }
 
@@ -55,9 +57,12 @@ function AddPlant() {
     }
     
     function handleNotes(e) {
+        // let toPush = e.target.value;
+        // let plantCopy = {...plant};
+        // plantCopy.notes.push(toPush);
         setPlant({
             ...plant,
-            notes: e.target.value
+            notes: [e.target.value]     
         });
         
     }    
