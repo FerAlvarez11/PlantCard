@@ -5,14 +5,14 @@ import "../App.css";
 import { nanoid } from 'nanoid';
 
 function AddPlant() {
-
     const [plant, setPlant] = useState({
         id: nanoid(),
         plantName: "",
         wateringTime: "",
         frequencyToWater: null,
-        notes: [""],
-        lastWaterDate: ""
+        notes: [],
+        lastWaterDate: "",
+        avatarId:"plant-2.png"
     });
 
     var carousselImages =[
@@ -52,20 +52,16 @@ function AddPlant() {
             lastWaterDate: today,
 
             frequencyToWater: frequencyToWater
-        }); 
-        
+        });         
     }
     
     function handleNotes(e) {
-        // let toPush = e.target.value;
-        // let plantCopy = {...plant};
-        // plantCopy.notes.push(toPush);
         setPlant({
             ...plant,
-            notes: [e.target.value]     
-        });
-        
-    }    
+            notes: [e.target.value]
+   
+        });        
+    }     
     
     const handleOnSubmit = () => {
         const jsonPlants = localStorage.getItem('plants');
@@ -74,6 +70,16 @@ function AddPlant() {
         window.localStorage.setItem('plants', JSON.stringify(plants))
         navigate("/plant-list");        
     };
+
+    const handleAvatar = (currentSlide) => {
+
+        console.log(currentSlide);
+        setPlant({
+            ...plant,
+            avatarId: carousselImages[currentSlide].img 
+        });        
+    } 
+
     
     return (
         <div className="mt-6">
@@ -165,7 +171,7 @@ function AddPlant() {
                     <article className="message height-width-full is-primary">
                         <p className="message-header">3. Choose a picture</p>
                         <div className="message-body">
-                            <Carousel carrouselData={carousselImages}/>
+                            <Carousel carrouselData={carousselImages} handleAvatar={handleAvatar}/>
                         </div>
                     </article>
                 </div>

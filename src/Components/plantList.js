@@ -25,8 +25,7 @@ function PlantList() {
     const restartTimePlant = (plantsRestarted) => {        
         setPlants(plantsRestarted);     
     }   
-
-
+    
     useEffect(() => {
         window.localStorage.setItem('plants', JSON.stringify(plants))
     }, [plants]);
@@ -52,7 +51,8 @@ function PlantList() {
                         lastWaterDate={plant.lastWaterDate}   
                         restartTimePlant={restartTimePlant}  
                         deletePlant={deletePlant}   
-                        notes={plant.notes}                        
+                        notes={plant.notes} 
+                        avatar={plant.avatarId}                       
                     />
                 )}
             </div>                   

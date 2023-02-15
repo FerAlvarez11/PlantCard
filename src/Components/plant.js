@@ -5,9 +5,8 @@ import "../App.css";
 import NotesList from "./NotesList";
 
 
-function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWater, restartTimePlant, id, deletePlant, notes }) {     
+function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWater, restartTimePlant, id, deletePlant, notes, avatar }) {     
     const date = Date.now();
-
 
     const [actualDateState, setActualDateState] = useState(date);
 
@@ -63,7 +62,7 @@ function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWate
                 <div className="media">
                     <div className="media-right mr-4">
                         <div className="image is-96x96">
-                            <img src='plant-1.png' alt="Hi" />
+                            <img src={avatar} alt="Hi" />
                         </div>                
                     </div>
                     <div className="media-content">

@@ -1,10 +1,20 @@
 import "./carousel.css";
-import { useState } from "react";
+import {  useState, useRef, useEffect } from "react";
 
+function Carousel({carrouselData, handleAvatar}) {
 
-function Carousel({carrouselData}) {
+    const prevSlide = useRef(null);
 
     const [currentSlide, setCurrentSlide] = useState(1);
+
+     useEffect(() => {
+        let didSlideshowChange = prevSlide.current !== currentSlide;
+
+        if(typeof handleSlideshow !== "undefined" || didSlideshowChange) {
+            handleAvatar(currentSlide);
+            prevSlide.current = currentSlide;
+        }
+    }); 
 
     const handleArrowBack = () => {
         if(currentSlide === 0){
@@ -14,12 +24,12 @@ function Carousel({carrouselData}) {
     }
 
     const handleArrowFoward = () => {
-        if(currentSlide === 2){
+        if(currentSlide === carrouselData.length - 1){
             return setCurrentSlide(0);
         }
         return setCurrentSlide(currentSlide + 1)
     }
-
+    
     return (
         <div className="has-text-centered">        
             <div className="columns is-mobile is-vcentered">

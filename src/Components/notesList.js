@@ -10,8 +10,7 @@ function NotesList({id, notesOpen}) {
 
     const [newNote, setNewNote] = useState("");
 
-    const isButtonSubmitEnable = !newNote;
- 
+    const isButtonSubmitEnable = !newNote; 
       
     function handleNotes(e) {    
         setNewNote(e.target.value);   
@@ -40,8 +39,7 @@ function NotesList({id, notesOpen}) {
     useEffect(() => {
         window.localStorage.setItem('plants', JSON.stringify(plants))
     }, [plants]);
-
-
+    
     return (      
         <div>     
             <div className="modal is-active">
@@ -55,7 +53,7 @@ function NotesList({id, notesOpen}) {
                         {plantNotes.map((eachNote, i) =>
                             <Note 
                                 eachNote={eachNote}
-                                key={`plant_${i}`}
+                                key={`note_${i}`}
                             />
                         )}
                         <label className="label mt-4 mb-0" htmlFor="notes">Leave a note</label> 
