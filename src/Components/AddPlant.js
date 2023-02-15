@@ -20,7 +20,8 @@ function AddPlant() {
         {img:'plant-2.png'}, 
         {img:'plant-3.png'}, 
         {img:'plant-4.png'}
-    ];            
+    ];     
+
     const navigate = useNavigate();
  
     const today = Date.now();

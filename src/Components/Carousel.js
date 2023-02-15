@@ -7,14 +7,14 @@ function Carousel({carrouselData, handleAvatar}) {
 
     const [currentSlide, setCurrentSlide] = useState(1);
 
-     useEffect(() => {
+    useEffect(() => {
         let didSlideshowChange = prevSlide.current !== currentSlide;
 
-        if(typeof handleSlideshow !== "undefined" || didSlideshowChange) {
+        if(typeof handleAvatar !== "undefined" && didSlideshowChange) {
             handleAvatar(currentSlide);
             prevSlide.current = currentSlide;
         }
-    }); 
+    });
 
     const handleArrowBack = () => {
         if(currentSlide === 0){
