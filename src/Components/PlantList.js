@@ -4,8 +4,7 @@ import "../App.css";
 import { useState, useEffect } from "react";
 
 
-function PlantList() {     
-    
+function PlantList() {   
     const data = localStorage.getItem('plants');
 
     const [plants, setPlants] = useState(JSON.parse(data));

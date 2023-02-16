@@ -1,9 +1,7 @@
 import {Link} from "react-router-dom";
 import Carousel from "./Carousel";
 
-
 function Homepage() {
-
     var carousselImages =[
         {img:'carousel-homepage-1.png', title:"Dont forget anymore when is the rigth time", subtitle:"All thanks to fer and because she is a great programer, the best one!"}, 
         {img:'carousel-homepage-2.png', title:"You can also write notes", subtitle:"Your plant will be super happy, the happiest plant in the plant world"},

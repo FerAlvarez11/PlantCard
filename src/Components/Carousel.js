@@ -2,10 +2,8 @@ import "./carousel.css";
 import {  useState, useRef, useEffect } from "react";
 
 function Carousel({carrouselData, handleAvatar}) {
-
-    const prevSlide = useRef(null);
-
     const [currentSlide, setCurrentSlide] = useState(1);
+    const prevSlide = useRef(null);
 
     useEffect(() => {
         let didSlideshowChange = prevSlide.current !== currentSlide;

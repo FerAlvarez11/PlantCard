@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import Note from "./Note";
 
-function NotesList({id, notesOpen}) {
-        
+function NotesList({id, notesOpen, plantName}) {        
     const data = localStorage.getItem('plants');
     const dataArray = JSON.parse(data);
 
@@ -59,7 +58,7 @@ function NotesList({id, notesOpen}) {
                 <div className="modal-background"></div>
                 <div className="modal-card">
                     <header className="modal-card-head">
-                        <p className="modal-card-title">Notes</p>
+                        <p className="modal-card-title">Notes for {plantName}</p>
                         <button className="delete" onClick= {()=>notesOpen()} aria-label="close"></button>
                     </header>
                     <section className="modal-card-body">
@@ -72,7 +71,7 @@ function NotesList({id, notesOpen}) {
                                 deleteNote={deleteNote}
                             />
                         )}
-                        <label className="label mt-4 mb-0" htmlFor="notes">Leave a note</label> 
+                        <label className="label mt-4 mb-0" htmlFor="notes">Add a note</label> 
                         <textarea 
                             className="textarea"
                             id="notes" 

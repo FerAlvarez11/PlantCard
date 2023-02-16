@@ -77,7 +77,7 @@ function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWate
                     <div className="level-item">
                         <button onClick= {()=>setIsNotesListOpen(!isNotesListOpen)} className=" level-right button is-text has-text-info dropdown-menu2">View notes</button>  
                         {isNotesListOpen && (     
-                            <NotesList notes={notes} id={id} notesOpen={closeNotesButton}/>
+                            <NotesList notes={notes} id={id} notesOpen={closeNotesButton} plantName={plantName}/>
                         )}   
                     </div>
                 </nav> 
