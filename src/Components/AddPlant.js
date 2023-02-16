@@ -62,19 +62,21 @@ function AddPlant() {
             notes: [e.target.value]
    
         });        
-    }     
+    } 
     
     const handleOnSubmit = () => {
         const jsonPlants = localStorage.getItem('plants');
         const plants = JSON.parse(jsonPlants);
-        plants.push(plant);
-        window.localStorage.setItem('plants', JSON.stringify(plants))
+        if(plants === null){
+            window.localStorage.setItem('plants', JSON.stringify([plant]));
+        } else {
+            plants.push(plant);
+            window.localStorage.setItem('plants', JSON.stringify(plants));
+        }
         navigate("/plant-list");        
     };
 
     const handleAvatar = (currentSlide) => {
-
-        console.log(currentSlide);
         setPlant({
             ...plant,
             avatarId: carousselImages[currentSlide].img 

@@ -9,6 +9,8 @@ function PlantList() {
     const data = localStorage.getItem('plants');
 
     const [plants, setPlants] = useState(JSON.parse(data));
+    console.log(typeof plants)
+
     
     const deletePlant = (id) => {
         const index = plants.findIndex(object => {
