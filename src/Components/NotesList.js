@@ -30,6 +30,19 @@ function NotesList({id, notesOpen}) {
         }  
     }
 
+    const deleteNote = (plantId, noteIndex) => {
+        const index = plants.findIndex(object => {
+            return object.id === plantId;
+        });
+
+        if(index !== -1){      
+            let newDataArrayCopy = [...plants];           
+            let plantToDeleteNote = newDataArrayCopy[index].notes;
+            plantToDeleteNote.splice(noteIndex, 1);  
+            setPlants(newDataArrayCopy);   
+        }  
+    }
+
     const index = plants.findIndex(object => {
         return object.id === id;
     });
@@ -51,9 +64,12 @@ function NotesList({id, notesOpen}) {
                     </header>
                     <section className="modal-card-body">
                         {plantNotes.map((eachNote, i) =>
-                            <Note 
+                            <Note
+                                plantId={id}
+                                noteIndex={i}
                                 eachNote={eachNote}
                                 key={`note_${i}`}
+                                deleteNote={deleteNote}
                             />
                         )}
                         <label className="label mt-4 mb-0" htmlFor="notes">Leave a note</label> 

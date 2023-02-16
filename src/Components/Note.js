@@ -1,4 +1,10 @@
-function Note({eachNote}){
+function Note({eachNote, noteIndex, plantId, deleteNote}){
+
+    console.log(eachNote, noteIndex, plantId)
+
+    const handleDeleteNote = () => {
+        deleteNote(plantId, noteIndex)
+    }
 
     return(       
         <article className="message mb-2 is-warning">
@@ -6,12 +12,12 @@ function Note({eachNote}){
                 <div className="level is-mobile">
                     <div className="level-left">
                         <div className="level-item">
-                            <h1>{eachNote}</h1>
+                            <p>{eachNote}</p>
                         </div>
                     </div>
                     <div className="level-right">
                         <div className="level-item">
-                            <button className="delete level-right" aria-label="delete"></button>
+                            <button onClick={handleDeleteNote} className="delete level-right" aria-label="delete"></button>
                         </div>
                     </div>                       
                 </div>
