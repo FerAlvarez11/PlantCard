@@ -2,7 +2,7 @@ import "./carousel.css";
 import {  useState, useRef, useEffect } from "react";
 
 function Carousel({carrouselData, handleAvatar}) {
-    const [currentSlide, setCurrentSlide] = useState(1);
+    const [currentSlide, setCurrentSlide] = useState(0);
     const prevSlide = useRef(null);
 
     useEffect(() => {
@@ -30,21 +30,23 @@ function Carousel({carrouselData, handleAvatar}) {
     
     return (
         <div className="has-text-centered">        
-            <div className="columns is-mobile is-vcentered">
+            <div className="columns is-mobile is-vcentered" style={{userSelect: 'none'}}>
                 <div className="column">
-                    <i className="arrow left-arrow m-auto is-clickable" onClick={handleArrowBack}></i>
+                    <i className="arrow left-arrow m-auto is-clickable icon is-large-mobile" onClick={handleArrowBack}></i>
                 </div>        
-                <div className="column has-text-centered is-three-quarters"><img src={carrouselData[currentSlide].img} alt="Hi"/></div>
+                <div className="column has-text-centered is-three-quarters"><img src={`images/` + carrouselData[currentSlide].img} alt="plant-avatar"/></div>
                 <div className="column">
-                    <i className="arrow right-arrow m-auto is-clickable" onClick={handleArrowFoward}></i>
+                    <i className="arrow right-arrow m-auto is-clickable icon is-large-mobile" onClick={handleArrowFoward}></i>
                 </div>
-            </div>
-            <p className="title has-text-white is-size-6">
+            </div>          
+
+            <p className="title has-text-white is-size-5">
                 {carrouselData[currentSlide].title}
             </p>
             <p className="subtitle has-text-white is-size-6">
                 {carrouselData[currentSlide].subtitle}
             </p>
+            
         </div>
     )
 }

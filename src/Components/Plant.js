@@ -46,7 +46,7 @@ function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWate
 
     return (        
         <div className="column max-width">  
-            <article className="box border-color mb-3">
+            <article className="box border-color mb-3 plant-box-min-width plant-box-min-height">
                 <nav className="level mb-1 is-mobile">
                     <div className="level-left">
                         <div className="level-item">

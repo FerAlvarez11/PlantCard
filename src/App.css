@@ -1,6 +1,15 @@
-body {  
-    height: 100vh;
-}
+html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+ }
+ 
+ body {
+    margin: 0px;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+ }
 
 .max-width{
     max-width: 440px;
@@ -12,8 +21,7 @@ body {
     border-color: hsl(171, 100%, 41%);
   }
 
-.height-width-full{
-    width: 100%;
+.height-full{
     height: 100%;
 }
 
@@ -21,4 +29,28 @@ body {
     word-break: break-word;
 }
 
+@media only screen and (min-width: 769px) {
+    .plant-box-min-width {min-width: 400px;}
+    .plant-box-min-height {min-height: 275px;}
+    .full-height {height: 100vh;}
+}
 
+.button.is-wide {
+    min-width: 250px;
+ }
+
+ .logo-centered{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 40%;
+ }
+
+.is-dark-green{
+    color: #00332c;
+}
+
+.dark-green-bg{
+    background-color: #00332c;
+    color: white;
+}

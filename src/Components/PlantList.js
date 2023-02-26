@@ -32,7 +32,7 @@ function PlantList() {
     }, [plants]);
 
     return (
-        <div className="container">   
+        <div className="container is-fluid">   
             <div className="mt-2 has-text-centered"><img src='small-logo.png' alt="Hi" /></div>
             <div className="has-text-centered">
                 <Link to="/add-plant">
@@ -53,7 +53,7 @@ function PlantList() {
                         restartTimePlant={restartTimePlant}  
                         deletePlant={deletePlant}   
                         notes={plant.notes} 
-                        avatar={plant.avatarId}                       
+                        avatar={`images/${plant.avatarId}`}                       
                     />
                 )}
             </div>                   
