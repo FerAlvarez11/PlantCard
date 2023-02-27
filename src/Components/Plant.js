@@ -46,11 +46,11 @@ function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWate
 
     return (        
         <div className="column max-width">  
-            <article className="box border-color mb-3 plant-box-min-width plant-box-min-height">
+            <article className="box border-color mb-3 plant-box-min-width plant-box-min-height p-3">
                 <nav className="level mb-1 is-mobile">
                     <div className="level-left">
                         <div className="level-item">
-                            <strong className="mb-1 is-size-3">{plantName}</strong><br/>
+                            <strong className="mb-1 is-size-4">{plantName}</strong><br/>
                         </div>
                     </div>
                     <div className="level-right">
