@@ -109,7 +109,7 @@ function AddPlant() {
                     <div className="columns is-vcentered is-8-widescreen">
                         <div className="column" style={{maxWidth: "500px"}}>
                             <label 
-                                className="label mt-5 is-size-4 is-dark-green"
+                                className="label mt-5 is-size-4"
                                 htmlFor="username">1. What is your plant's name?
                             </label>
                             <input 
@@ -123,7 +123,7 @@ function AddPlant() {
                                 type="text"
                             />
                             <label 
-                                className="label is-size-4 is-dark-green mt-5"
+                                className="label is-size-4 mt-5"
                                 htmlFor="username">2. How often does your plant need to be watered?
                             </label>
                             <div className="column has-text-centered">                                
@@ -146,7 +146,7 @@ function AddPlant() {
                         </div>
                     </div>
                     <div className="has-text-centered mt-4">
-                        <button className="button is-warning is-rounded is-large mb-5 mt-5" style={{border: "1px solid #4c4329"}} type="submit" disabled={isButtonSubmitEnable} onClick={handleOnSubmit}>Submit</button>
+                        <button className="button is-warning is-rounded is-large mb-5 mt-5"  type="submit" disabled={isButtonSubmitEnable} onClick={handleOnSubmit}>Submit</button>
                     </div>
                 </div>
             </div>
