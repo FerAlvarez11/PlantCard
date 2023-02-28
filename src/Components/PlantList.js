@@ -32,31 +32,34 @@ function PlantList() {
     }, [plants]);
 
     return (
-        <div className="container is-fluid">   
-            <div className="mt-2 has-text-centered"><img src='small-logo.png' alt="Hi" /></div>
-            <div className="has-text-centered">
+        <div className="hero">   
+            <div className="hero-head has-background-primary has-text-centered">
+                <div className="logo-centered mt-5" style={{maxWidth:"325px"}}><img src='logo.png' alt="Logo" /></div>  
                 <Link to="/add-plant">
-                    <button className="button is-warning is-rounded is-large mb-5">Add Plant</button>
-                </Link>
+                    <button className="button is-warning is-rounded is-medium mb-3">Add Plant</button>
+                </Link>   
             </div>
-
-            <div className="columns is-centered is-multiline">
-                {plants.map((plant, i) => 
-                    <Plant
-                        plants= {plants}
-                        key={`plant_${i}`}
-                        id={plant.id}
-                        plantName={plant.plantName}
-                        wateringTime={plant.wateringTime}
-                        frequencyToWater={plant.frequencyToWater}
-                        lastWaterDate={plant.lastWaterDate}   
-                        restartTimePlant={restartTimePlant}  
-                        deletePlant={deletePlant}   
-                        notes={plant.notes} 
-                        avatar={`images/${plant.avatarId}`}                       
-                    />
-                )}
-            </div>                   
+            <div className="hero-body">
+                <div className="container">         
+                    <div className="columns is-centered is-multiline">
+                        {plants.map((plant, i) => 
+                            <Plant
+                                plants= {plants}
+                                key={`plant_${i}`}
+                                id={plant.id}
+                                plantName={plant.plantName}
+                                wateringTime={plant.wateringTime}
+                                frequencyToWater={plant.frequencyToWater}
+                                lastWaterDate={plant.lastWaterDate}   
+                                restartTimePlant={restartTimePlant}  
+                                deletePlant={deletePlant}   
+                                notes={plant.notes} 
+                                avatar={`images/${plant.avatarId}`}                       
+                            />
+                        )}
+                    </div>
+                </div>
+            </div>   
         </div>
     );
 }

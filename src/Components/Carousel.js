@@ -40,7 +40,7 @@ function Carousel({carrouselData, handleAvatar}) {
                 </div>
             </div>          
 
-            <p className="title has-text-white is-size-5">
+            <p className="title is-dark-green is-size-5">
                 {carrouselData[currentSlide].title}
             </p>
             <p className="subtitle has-text-white is-size-6">

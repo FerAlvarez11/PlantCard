@@ -71,7 +71,7 @@ function NotesList({id, notesOpen, plantName}) {
                                 deleteNote={deleteNote}
                             />
                         )}
-                        <label className="label mt-4 mb-0" htmlFor="notes">Add a note</label> 
+                        <label className="label mt-4 mb-2" htmlFor="notes">Add a note</label> 
                         <textarea 
                             className="textarea"
                             id="notes" 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Carousel from "./Carousel";
 import "../App.css";
 import { nanoid } from 'nanoid';
@@ -78,14 +78,6 @@ function AddPlant() {
       };
 
     
-    function handleNotes(e) {
-        setPlant({
-            ...plant,
-            notes: [e.target.value]
-   
-        });        
-    } 
-    
     const handleOnSubmit = () => {
         const jsonPlants = localStorage.getItem('plants');
         const plants = JSON.parse(jsonPlants);
@@ -108,7 +100,9 @@ function AddPlant() {
     return (
         <div className="hero has-background-primary is-fullheight">
             <div className="hero-head">
-                <div className="logo-centered mt-5" style={{maxWidth: "325px"}}><img src='logo-black.png' alt="Logo" /></div>     
+                <Link to="/plant-list">
+                    <div className="logo-centered mt-5" style={{maxWidth:"325px"}}><img src='logo.png' alt="Logo" /></div> 
+                </Link>    
             </div>
             <div className="hero-body pt-0" style={{background: "1200px"}}>
                 <div className="container" style={{maxWidth: "1200px"}}>
@@ -132,13 +126,7 @@ function AddPlant() {
                                 className="label is-size-4 is-dark-green mt-5"
                                 htmlFor="username">2. How often does your plant need to be watered?
                             </label>
-                            <div className="column has-text-centered">
-                                {/* <button className={`button is-rounded is-wide mt-4 ${plant.wateringTime === "Every day" ? "is-link" : ""}`} onClick={() => { sayHello("Every day"); }}>Every day</button>
-                                <button className={`button is-rounded is-wide mt-4 ${plant.wateringTime === "Every three days" ? "is-link" : ""}`} onClick={() => { sayHello("Every three days"); }}>Every three days</button>
-                                <button className={`button is-rounded is-wide mt-4 ${plant.wateringTime === "Once a week" ? "is-link" : ""}`} onClick={() => { sayHello("Once a week"); }}>Once a week</button> 
-                                <button className={`button is-rounded is-wide mt-4 ${plant.wateringTime === "Every two weeks" ? "is-link" : ""}`} onClick={() => { sayHello("Every two weeks"); }}>Every two weeks</button>
-                                <button className={`button is-rounded is-wide mt-4 ${plant.wateringTime === "Once a month" ? "is-link" : ""}`} onClick={() => { sayHello("Once a month"); }}>Once a month</button>  */}
-                                
+                            <div className="column has-text-centered">                                
                                 <div className="select is-large">
                                 <select className="is-focused" onChange={handleWateringTime}>
                                     <option>Every day</option>
