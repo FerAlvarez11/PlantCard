@@ -34,7 +34,7 @@ function Carousel({carrouselData, handleAvatar}) {
                 <div className="column">
                     <i className="arrow left-arrow m-auto is-clickable icon is-large-mobile" onClick={handleArrowBack}></i>
                 </div>        
-                <div className="column has-text-centered is-three-quarters"><img src={`images/` + carrouselData[currentSlide].img} alt="plant-avatar"/></div>
+                <div className="column has-text-centered is-three-quarters"><img src={`/PlantCard/images/` + carrouselData[currentSlide].img} alt="plant-avatar"/></div>
                 <div className="column">
                     <i className="arrow right-arrow m-auto is-clickable icon is-large-mobile" onClick={handleArrowFoward}></i>
                 </div>

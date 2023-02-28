@@ -8,8 +8,6 @@ function PlantList() {
     const data = localStorage.getItem('plants');
 
     const [plants, setPlants] = useState(JSON.parse(data));
-    console.log(typeof plants)
-
     
     const deletePlant = (id) => {
         const index = plants.findIndex(object => {
@@ -34,7 +32,7 @@ function PlantList() {
     return (
         <div className="hero">   
             <div className="hero-head has-background-primary has-text-centered">
-                <div className="logo-centered mt-5" style={{maxWidth:"325px"}}><img src='logo.png' alt="Logo" /></div>  
+                <div className="logo-centered mt-5" style={{maxWidth:"325px"}}><img src='/PlantCard/logo.png' alt="Logo" /></div>  
                 <Link to="/add-plant">
                     <button className="button is-warning is-rounded is-medium mb-3">Add Plant</button>
                 </Link>   
@@ -54,7 +52,7 @@ function PlantList() {
                                 restartTimePlant={restartTimePlant}  
                                 deletePlant={deletePlant}   
                                 notes={plant.notes} 
-                                avatar={`images/${plant.avatarId}`}                       
+                                avatar={`/PlantCard/images/${plant.avatarId}`}                       
                             />
                         )}
                     </div>

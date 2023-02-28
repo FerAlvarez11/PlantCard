@@ -101,7 +101,7 @@ function AddPlant() {
         <div className="hero has-background-primary is-fullheight">
             <div className="hero-head">
                 <Link to="/plant-list">
-                    <div className="logo-centered mt-5" style={{maxWidth:"325px"}}><img src='logo.png' alt="Logo" /></div> 
+                    <div className="logo-centered mt-5" style={{maxWidth:"325px"}}><img src='/PlantCard/logo.png' alt="Logo" /></div> 
                 </Link>    
             </div>
             <div className="hero-body pt-0" style={{background: "1200px"}}>

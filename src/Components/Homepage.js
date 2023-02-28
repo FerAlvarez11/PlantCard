@@ -14,7 +14,7 @@ function Homepage() {
                 <div className="container">
                     <div className="columns is-vcetered">
                         <div className="column is-half">
-                            <div className="max-width"><img src='logo.png' alt="Logo" /></div>
+                            <div className="max-width"><img src='/PlantCard/logo.png' alt="Logo" /></div>
                                 <p className="title is-size-1 is-dark-green">
                                     Easily track your plants watering times.
                                 </p>
