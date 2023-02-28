@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/%7BPlantCard%7D/static/css/main.4b9b255a.css",
+    "main.js": "/%7BPlantCard%7D/static/js/main.cee7ca9d.js",
+    "index.html": "/%7BPlantCard%7D/index.html",
+    "main.4b9b255a.css.map": "/%7BPlantCard%7D/static/css/main.4b9b255a.css.map",
+    "main.cee7ca9d.js.map": "/%7BPlantCard%7D/static/js/main.cee7ca9d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4b9b255a.css",
+    "static/js/main.cee7ca9d.js"
+  ]
+}

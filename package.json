@@ -1,4 +1,5 @@
 {
+  "homepage": "https://feralvarez11.github.io/PlantCard",
   "name": "plantcalendar",
   "version": "0.1.0",
   "private": true,
@@ -9,6 +10,7 @@
     "bulma": "^0.9.4",
     "bulma-radio": "^1.2.0",
     "date-fns": "^2.29.3",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.6.2",
