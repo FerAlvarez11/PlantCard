@@ -1,7 +1,14 @@
-import {Link} from "react-router-dom";
+import {Link, Navigate } from "react-router-dom";
 import Carousel from "./Carousel";
 
 function Homepage() {
+    const data = localStorage.getItem('plants');
+    const dataArray = JSON.parse(data);
+
+    if(dataArray.length !== 0){
+        return <Navigate to="/plant-list" />
+    };
+
     var carousselImages =[
         {img:'carousel-homepage-1.png', title:"Love your plants right?", subtitle:"Forgetting when to water your plants doesn't make you a bad a person"}, 
         {img:'carousel-homepage-2.png', title:"Set a time and we will do the rest", subtitle:"If you water your plant at the rigth time all is going to be good, really good!"},
