@@ -40,7 +40,7 @@ function WateringTime({ percentage, dateToWater, actualDate, buttonPressed }) {
                 <progress className="progress is-warning mt-2 mb-0" value="100" max="100">100%</progress>
                 <article className="message is-warning mt-1">
                     <div className="message-body p-2">
-                        <small className="has-text-weight-bold">Watering day is: <br/> Today!</small>
+                        <small className="has-text-weight-bold">Watering day is: <br/>Today!</small>
                     </div>
                 </article>
             </span>
