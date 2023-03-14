@@ -9,6 +9,8 @@ function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWate
     const date = Date.now();
 
     const [actualDateState, setActualDateState] = useState(date);
+    const [timeAnimation, setTimeAnimation] = useState(false);
+
 
     useEffect(() => {
         setInterval(() => setActualDateState(Date.now()), 6000000);
@@ -32,13 +34,21 @@ function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWate
             let plantsCopy = [...plants];
             plantsCopy[index].lastWaterDate = Date.now();   
             restartTimePlant(plantsCopy); 
+        };
 
-        } 
+        setTimeAnimation(true);
     };
+
+    useEffect(() => {
+        if(timeAnimation === true){
+            setTimeout(() => setTimeAnimation(false), 1000);
+        };
+    }, [timeAnimation]);   
     
     const handleDeletePlant = () => {
         deletePlant(id);
     };
+
 
     const closeNotesButton = () => {
         setIsNotesListOpen(!isNotesListOpen)
@@ -67,7 +77,7 @@ function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWate
                     </div>
                     <div className="media-content">
                         <small>Watering time: {wateringTime}</small>
-                        <WateringTime percentage={percentageInteger} dateToWater={dateToWater} actualDate={actualDate}/> 
+                        <WateringTime percentage={percentageInteger} dateToWater={dateToWater} actualDate={actualDate} buttonPressed={timeAnimation}/> 
                     </div>
                 </div>
                 <nav className="level mt-3 is-mobile">

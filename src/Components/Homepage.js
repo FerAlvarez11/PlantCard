@@ -5,7 +5,7 @@ function Homepage() {
     const data = localStorage.getItem('plants');
     const dataArray = JSON.parse(data);
 
-    if(dataArray.length !== 0){
+    if(dataArray.length > 0){
         return <Navigate to="/plant-list" />
     };
 
@@ -37,8 +37,7 @@ function Homepage() {
                             <Carousel carrouselData={carousselImages}/>
                         </div>
                     </div>
-                </div>
-                
+                </div>                
             </div>
         </section>
     )

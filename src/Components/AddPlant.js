@@ -1,11 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Carousel from "./Carousel";
 import "../App.css";
 import { nanoid } from 'nanoid';
 
 function AddPlant() {     
+    const data = localStorage.getItem('plants');
+    const dataArray = JSON.parse(data);
+
+    const [buttonPlantList, setbuttonPlantList] = useState(false);
+
+    useEffect(() => {
+        if(dataArray.length > 0){
+            setbuttonPlantList(true);
+        };
+    }, [dataArray]);    
+
     const today = Date.now();
+
+
 
     const [plant, setPlant] = useState({
         id: nanoid(),
@@ -102,12 +115,17 @@ function AddPlant() {
             <div className="hero-head">
                 <Link to="/plant-list">
                     <div className="logo-centered mt-5" style={{maxWidth:"325px"}}><img src='/PlantCard/logo.png' alt="Logo" /></div> 
-                </Link>    
+                </Link>
             </div>
             <div className="hero-body pt-0" style={{background: "1200px"}}>
                 <div className="container" style={{maxWidth: "1200px"}}>
                     <div className="columns is-vcentered is-8-widescreen">
                         <div className="column" style={{maxWidth: "500px"}}>
+                            {buttonPlantList && ( 
+                                <Link to="/plant-list">
+                                    <button className="button is-success is-rounded mb-6">Back to the list</button>
+                                </Link>
+                            )}    
                             <label 
                                 className="label mt-5 is-size-4"
                                 htmlFor="username">1. What is your plant's name?

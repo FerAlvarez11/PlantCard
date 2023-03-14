@@ -1,26 +1,29 @@
 import React from "react";
-import { format } from 'date-fns'
+import { format } from 'date-fns';
 
-function WateringTime({ percentage, dateToWater, actualDate }) {
-    let waterngTimeState;
+function WateringTime({ percentage, dateToWater, actualDate, buttonPressed }) {
+    let wateringTimeState;
     const hasPastTimeWarningMessage = actualDate >= dateToWater + 30000;
     const dateObject = new Date(dateToWater);
 
+    var isActive = buttonPressed;
+
+    console.log(isActive);
+
     if(percentage > 0){
-        waterngTimeState = (
+        wateringTimeState = (
             <span>
-                <progress className="progress is-primary mt-2 mb-0" value={percentage} max="100">`${percentage}%`</progress> 
+                <progress className={`progress is-primary mt-2 mb-0 ${isActive ? 'waterTimeRestarted' : ''}`} value={percentage} max="100">`${percentage}%`</progress> 
                 <article className="message is-primary">
                     <div className="message-body mt-3 p-2">
                         <small className="has-text-weight-bold">Next Watering day is: <br/> {format(dateObject, 'PPPP')}</small>
                     </div>
                 </article>
             </span>
-        )
-        
+        )        
         
     } else if (hasPastTimeWarningMessage){
-        waterngTimeState = (
+        wateringTimeState = (
             <span>
                 <progress className="progress is-danger mt-2 mb-0" value="100" max="100">100%</progress>
                 <article className="message is-danger mt-1">
@@ -32,7 +35,7 @@ function WateringTime({ percentage, dateToWater, actualDate }) {
         )
 
     } else if (percentage < 0) {
-        waterngTimeState = (
+        wateringTimeState = (
             <span>
                 <progress className="progress is-warning mt-2 mb-0" value="100" max="100">100%</progress>
                 <article className="message is-warning mt-1">
@@ -46,7 +49,7 @@ function WateringTime({ percentage, dateToWater, actualDate }) {
 
     return (
         <div>
-           {waterngTimeState}
+           {wateringTimeState}
         </div>                 
     );
   }
