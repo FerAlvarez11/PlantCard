@@ -18,8 +18,6 @@ function AddPlant() {
 
     const today = Date.now();
 
-
-
     const [plant, setPlant] = useState({
         id: nanoid(),
         plantName: "",
@@ -123,7 +121,12 @@ function AddPlant() {
                         <div className="column" style={{maxWidth: "500px"}}>
                             {buttonPlantList && ( 
                                 <Link to="/plant-list">
-                                    <button className="button is-success is-rounded mb-6">Back to the list</button>
+                                     <button class="button is-primary">
+                                        <span class="icon">
+                                        <i class="fa-solid fa-arrow-left"></i>
+                                        </span>
+                                        <span>Back to your plants list</span>
+                                    </button>
                                 </Link>
                             )}    
                             <label 

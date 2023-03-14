@@ -41,7 +41,7 @@ function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWate
 
     useEffect(() => {
         if(timeAnimation === true){
-            setTimeout(() => setTimeAnimation(false), 1000);
+            setTimeout(() => setTimeAnimation(false), 500);
         };
     }, [timeAnimation]);   
     
@@ -82,7 +82,12 @@ function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWate
                 </div>
                 <nav className="level mt-3 is-mobile">
                     <div className="level-item">
-                        <button onClick={handlRestartTimePlant} className="button is-primary is-outlined is-rounded">Water now</button>
+                        <button onClick={handlRestartTimePlant} class="button is-primary is-outlined">
+                            <span class="icon">
+                            <i class="fa-solid fa-droplet"></i>
+                            </span>
+                            <span>Water now</span>
+                        </button>
                     </div>
                     <div className="level-item">
                         <button onClick= {()=>setIsNotesListOpen(!isNotesListOpen)} className=" level-right button is-text has-text-info dropdown-menu2">View notes</button>  
