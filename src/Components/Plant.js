@@ -82,9 +82,9 @@ function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWate
                 </div>
                 <nav className="level mt-3 is-mobile">
                     <div className="level-item">
-                        <button onClick={handlRestartTimePlant} class="button is-primary is-outlined">
-                            <span class="icon">
-                            <i class="fa-solid fa-droplet"></i>
+                        <button onClick={handlRestartTimePlant} className="button is-primary is-outlined">
+                            <span className="icon">
+                            <i className="fa-solid fa-droplet"></i>
                             </span>
                             <span>Water now</span>
                         </button>

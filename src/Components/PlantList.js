@@ -36,7 +36,6 @@ function PlantList() {
             plantsCopy.splice(index, 1);  
             setPlants(plantsCopy);        
         }
-
     }
 
     const restartTimePlant = (plantsRestarted) => {        
@@ -54,10 +53,10 @@ function PlantList() {
                  {bannerWhenNoPlants && ( 
                     <div>
                         <p className="subtitle is-size-2 mt-6 mb-6">
-                            It looks like you didn´t add any plant yet
+                            Ups! no plants here..
                         </p>
                         <p className="subtitle is-size-4 mt-3 mb-6">
-                            Start now adding a plant to your plant collection.
+                            Just a click away to start this journey, lets start a garden!
                         </p>
                     </div>
                  )}
@@ -71,7 +70,7 @@ function PlantList() {
                     <div className="columns is-centered is-multiline">
                         {bannerWhenNoPlants && ( 
                             <div>
-                                <img src={"/PlantCard/images/plant-list-banner-photo.png"} style={{maxWidth: "500px"}} alt="plant-avatar"/>
+                                <img src={"/PlantCard/images/plant-list-banner-photo.png"} className={"image is-fullwidth"} style={{maxWidth: "500px"}} alt="plant-avatar"/>
                             </div>
                         )}     
 

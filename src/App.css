@@ -40,16 +40,24 @@ html {
     width: 40%;
  }
 
-.dark-green-bg{
-    background-color: #00332c;
-    color: white;
-}
+ .progress.waterTimeRestarted::-webkit-progress-value {
+    background: linear-gradient(90deg, #00c5a8 0%, #6bffe9 75%, #00e1c0 100%);
+    border: 3px solid #00ffcc7e;
+    border-radius: 50px;
+    animation-name: gradient;
+  }
+
 
 .waterTimeRestarted{
+    animation: gradient 5s normal;
     transition:0.3s;
-    animation-duration: 0.5s;
-    animation-direction: normal;
-    outline: 2px solid #31fcdd;
+    outline: 2px solid #e7e7e7;
     outline-offset: 2px;
-    box-shadow: 0 0 2px #d0fdff               
+    box-shadow: 0 0 1px #d0fdff;
 }
+
+  @keyframes gradient {
+    0%   {opacity: 50%;}
+    20%   {opacity: 80%;}
+    100% {opacity: 100%;}
+  }

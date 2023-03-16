@@ -1,5 +1,6 @@
 import React from "react";
 import { format } from 'date-fns';
+import "../App.css";
 
 function WateringTime({ percentage, dateToWater, actualDate, buttonPressed }) {
     let wateringTimeState;
@@ -8,12 +9,10 @@ function WateringTime({ percentage, dateToWater, actualDate, buttonPressed }) {
 
     var isActive = buttonPressed;
 
-    console.log(isActive);
-
     if(percentage > 0){
         wateringTimeState = (
             <span>
-                <progress className={`progress is-primary mt-2 mb-0 ${isActive ? 'waterTimeRestarted' : ''}`} value={percentage} max="100">`${percentage}%`</progress> 
+                <progress className={`progress ${isActive ? 'waterTimeRestarted' : 'is-primary'}  mt-2 mb-0`} value={percentage} max="100">`${percentage}%`</progress> 
                 <article className="message is-primary">
                     <div className="message-body mt-3 p-2">
                         <small className="has-text-weight-bold">Next Watering day is: <br/> {format(dateObject, 'PPPP')}</small>
