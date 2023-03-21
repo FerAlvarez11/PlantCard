@@ -11,6 +11,10 @@ html {
     height: 100%;
  }
 
+ .button.is-wide {
+    min-width: 250px;
+ }
+
 .max-width{
     max-width: 440px;
 }
@@ -39,11 +43,6 @@ html {
     display: block;
     width: 40%;
  }
-
-.dark-green-bg{
-    background-color: #00332c;
-    color: white;
-}
 
 .waterTimeRestarted{
     background: #03e9f4;

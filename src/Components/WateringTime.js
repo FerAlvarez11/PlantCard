@@ -4,18 +4,21 @@ import "../App.css";
 
 function WateringTime({ percentage, dateToWater, actualDate, buttonPressed }) {
     let wateringTimeState;
-    const hasPastTimeWarningMessage = actualDate >= dateToWater + 30000;
+    const hasPastTimeWarningMessage = actualDate >= dateToWater + 8640000;
     const dateObject = new Date(dateToWater);
 
+    console.log(hasPastTimeWarningMessage,"hey", actualDate, dateToWater, dateToWater + 86400000);
+
     var isActive = buttonPressed;
+    console.log(percentage)
 
     if(percentage > 0){
         wateringTimeState = (
-            <span>
+            <span>     
                 <progress className={`progress ${isActive ? 'waterTimeRestarted' : 'is-primary'}  mt-2 mb-0`} value={percentage} max="100">`${percentage}%`</progress> 
                 <article className="message is-primary">
                     <div className="message-body mt-3 p-2">
-                        <small className="has-text-weight-bold">Next Watering day is: <br/> {format(dateObject, 'PPPP')}</small>
+                        <small className="">Next Watering day is: <br/><strong>{format(dateObject, 'PPPP')} </strong></small>
                     </div>
                 </article>
             </span>
@@ -27,19 +30,19 @@ function WateringTime({ percentage, dateToWater, actualDate, buttonPressed }) {
                 <progress className="progress is-danger mt-2 mb-0" value="100" max="100">100%</progress>
                 <article className="message is-danger mt-1">
                     <div className="message-body p-2">
-                        <small className="has-text-weight-bold">Watering day was: <br/> {format(dateObject, 'PPPP')}</small>
+                        <small className="">Watering day was: <br/><strong>{format(dateObject, 'PPPP')} </strong></small>                       
                     </div>
                 </article>
             </span>
         )
 
-    } else if (percentage < 0) {
+    } else if (percentage <= 0) {
         wateringTimeState = (
             <span>
                 <progress className="progress is-warning mt-2 mb-0" value="100" max="100">100%</progress>
                 <article className="message is-warning mt-1">
                     <div className="message-body p-2">
-                        <small className="has-text-weight-bold">Watering day is: <br/>Today!</small>
+                        <small className="">Watering day is: <br/><strong>Today!</strong></small>                           
                     </div>
                 </article>
             </span>

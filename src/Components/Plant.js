@@ -10,7 +10,7 @@ function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWate
 
     const [actualDateState, setActualDateState] = useState(date);
     const [timeAnimation, setTimeAnimation] = useState(false);
-
+    const [waterNowTextButton, setWaterNowTextButton] = useState('Water now');
 
     useEffect(() => {
         setInterval(() => setActualDateState(Date.now()), 6000000);
@@ -37,6 +37,8 @@ function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWate
         };
 
         setTimeAnimation(true);
+        setWaterNowTextButton("Watered!");
+        setTimeout(() => setWaterNowTextButton("Water now"), 500);
     };
 
     useEffect(() => {
@@ -48,7 +50,6 @@ function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWate
     const handleDeletePlant = () => {
         deletePlant(id);
     };
-
 
     const closeNotesButton = () => {
         setIsNotesListOpen(!isNotesListOpen)
@@ -76,17 +77,17 @@ function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWate
                         </div>                
                     </div>
                     <div className="media-content">
-                        <small>Watering time: {wateringTime}</small>
+                        <small className="tag"><i className={`fa-solid fa-droplet mr-1`}></i> Watering time: {wateringTime}</small>
                         <WateringTime percentage={percentageInteger} dateToWater={dateToWater} actualDate={actualDate} buttonPressed={timeAnimation}/> 
                     </div>
                 </div>
                 <nav className="level mt-3 is-mobile">
                     <div className="level-item">
-                        <button onClick={handlRestartTimePlant} className="button is-primary is-outlined">
+                        <button onClick={handlRestartTimePlant} className={`button is-outlined is-wide ${timeAnimation ? '' : 'primary'}  mt-2 mb-0`}>
                             <span className="icon">
-                            <i className="fa-solid fa-droplet"></i>
+                                <i className={`progress ${timeAnimation ? 'fa-solid fa-check' : 'fa-solid fa-droplet'}  mt-2 mb-0`}></i>
                             </span>
-                            <span>Water now</span>
+                            <span>{waterNowTextButton}</span>
                         </button>
                     </div>
                     <div className="level-item">
@@ -98,7 +99,6 @@ function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWate
                 </nav> 
             </article>            
         </div>
-
     );
   }
   
