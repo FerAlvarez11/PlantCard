@@ -63,10 +63,7 @@ html {
   }
 
 
-  .fa-droplet {
+  .fa-droplet, .fa-check {
     color: #00d1b2;
   }
 
-  .fa-circle-check {
-    color: #dcac00;
-  }

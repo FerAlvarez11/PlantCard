@@ -77,15 +77,15 @@ function Plant({ plants, plantName, wateringTime, lastWaterDate, frequencyToWate
                         </div>                
                     </div>
                     <div className="media-content">
-                        <small className="tag"><i className={`fa-solid fa-droplet mr-1`}></i> Watering time: {wateringTime}</small>
+                        <small className="tag"><i className={`fa-solid fa-droplet mr-1`}></i>{wateringTime}</small>
                         <WateringTime percentage={percentageInteger} dateToWater={dateToWater} actualDate={actualDate} buttonPressed={timeAnimation}/> 
                     </div>
                 </div>
                 <nav className="level mt-3 is-mobile">
                     <div className="level-item">
-                        <button onClick={handlRestartTimePlant} className={`button is-outlined is-wide ${timeAnimation ? '' : 'primary'}  mt-2 mb-0`}>
+                        <button onClick={handlRestartTimePlant} className={`button is-outlined is-wide ${timeAnimation ? '' : 'primary'}  mt-2`}>
                             <span className="icon">
-                                <i className={`progress ${timeAnimation ? 'fa-solid fa-check' : 'fa-solid fa-droplet'}  mt-2 mb-0`}></i>
+                                <i className={`progress ${timeAnimation ? 'fa-solid fa-check mr-2' : 'fa-solid fa-droplet'}`}></i>
                             </span>
                             <span>{waterNowTextButton}</span>
                         </button>

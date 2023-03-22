@@ -4,13 +4,10 @@ import "../App.css";
 
 function WateringTime({ percentage, dateToWater, actualDate, buttonPressed }) {
     let wateringTimeState;
-    const hasPastTimeWarningMessage = actualDate >= dateToWater + 8640000;
+    const hasPastTimeWarningMessage = actualDate >= dateToWater + 86400000;
     const dateObject = new Date(dateToWater);
 
-    console.log(hasPastTimeWarningMessage,"hey", actualDate, dateToWater, dateToWater + 86400000);
-
     var isActive = buttonPressed;
-    console.log(percentage)
 
     if(percentage > 0){
         wateringTimeState = (
