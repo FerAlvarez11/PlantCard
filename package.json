@@ -1,6 +1,6 @@
 {
   "homepage": "https://feralvarez11.github.io/PlantCard",
-  "name": "plantcalendar",
+  "name": "plantcard",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
