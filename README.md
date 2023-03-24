@@ -20,9 +20,9 @@ The plant card shows:
 
 ## Screenshots:
 
-![Plant list section](https://imgur.com/V0Kd6uG)
+<img src="https://imgur.com/V0Kd6uG.png" width="500">
+<img src="https://imgur.com/npM6PHt.png" width="300">
+<img src="https://imgur.com/9kHvds0.png" width="300">
+<img src="https://imgur.com/UrlcZom.png" width="300">
 
-![Plant list section](https://imgur.com/npM6PHt)
-![Plant list section](https://imgur.com/9kHvds0)
-![Plant list section](https://imgur.com/UrlcZom)
 
