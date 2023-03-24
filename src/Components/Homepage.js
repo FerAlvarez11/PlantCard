@@ -11,8 +11,8 @@ function Homepage() {
 
     var carousselImages =[
         {img:'carousel-homepage-1.png', title:"Love your plants right?", subtitle:"Forgetting when to water your plants doesn't make you a bad a person"}, 
-        {img:'carousel-homepage-2.png', title:"Set a time and we will do the rest", subtitle:"If you water your plant at the rigth time all is going to be good, really good!"},
-        {img:'carousel-homepage-3.png', title:"Notes are great!", subtitle:"Little remainders that help a lot. Your plants are going to be the happiest plants in the plants world"}
+        {img:'carousel-homepage-2.png', title:"Set a time so you won't forget", subtitle:"A watered plant is a happy plant"},
+        {img:'carousel-homepage-3.png', title:"Notes are great!", subtitle:"Little reminders to keep everything on track"}
     ];
 
     return (

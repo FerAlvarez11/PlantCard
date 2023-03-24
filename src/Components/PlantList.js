@@ -53,10 +53,10 @@ function PlantList() {
                  {bannerWhenNoPlants && ( 
                     <div>
                         <p className="subtitle is-size-2 mt-6 mb-6">
-                            Ups! no plants here..
+                            Oops! No plants here...
                         </p>
                         <p className="subtitle is-size-4 mt-3 mb-6">
-                            Just a click away to start this journey, lets start a garden!
+                            Just a click away to start the journey
                         </p>
                     </div>
                  )}

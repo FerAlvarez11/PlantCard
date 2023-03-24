@@ -15,7 +15,7 @@ function WateringTime({ percentage, dateToWater, actualDate, buttonPressed }) {
                 <progress className={`progress ${isActive ? 'waterTimeRestarted' : 'is-primary'}  mt-2 mb-0`} value={percentage} max="100">`${percentage}%`</progress> 
                 <article className="message is-primary">
                     <div className="message-body mt-3 p-2">
-                        <small className="">Next Watering day is: <br/><strong>{format(dateObject, 'PPPP')} </strong></small>
+                        <small className="">Next watering day is: <br/><strong>{format(dateObject, 'PPPP')} </strong></small>
                     </div>
                 </article>
             </span>
@@ -27,7 +27,7 @@ function WateringTime({ percentage, dateToWater, actualDate, buttonPressed }) {
                 <progress className="progress is-danger mt-2 mb-0" value="100" max="100">100%</progress>
                 <article className="message is-danger mt-1">
                     <div className="message-body p-2">
-                        <small className="">Watering day was: <br/><strong>{format(dateObject, 'PPPP')} </strong></small>                       
+                        <small className="">Last watering day was: <br/><strong>{format(dateObject, 'PPPP')} </strong></small>                       
                     </div>
                 </article>
             </span>
