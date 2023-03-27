@@ -5,8 +5,11 @@ function Homepage() {
     const data = localStorage.getItem('plants');
     const dataArray = JSON.parse(data);
 
-    if(dataArray.length > 0){
-        return <Navigate to="/plant-list" />
+
+    if(dataArray !== null){
+        if (dataArray.length > 0) {
+            return <Navigate to="/plant-list"/>
+        }
     };
 
     var carousselImages =[

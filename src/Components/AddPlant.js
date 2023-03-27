@@ -11,9 +11,11 @@ function AddPlant() {
     const [buttonPlantList, setbuttonPlantList] = useState(false);
 
     useEffect(() => {
-        if(dataArray.length > 0){
-            setbuttonPlantList(true);
-        };
+        if(dataArray !== null){
+            if(dataArray.length > 0){
+                setbuttonPlantList(true);
+            };
+        };       
     }, [dataArray]);    
 
     const today = Date.now();
