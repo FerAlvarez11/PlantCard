@@ -31,27 +31,26 @@ function AddPlant() {
     });
 
     var carousselImages =[
-        {img:'plant-1.png', title:"3. Choose a picture"}, 
-        {img:'plant-2.png', title:"3. Choose a picture"}, 
-        {img:'plant-3.png', title:"3. Choose a picture"}, 
-        {img:'plant-4.png', title:"3. Choose a picture"},
-        {img:'plant-5.png', title:"3. Choose a picture"}, 
-        {img:'plant-6.png', title:"3. Choose a picture"}, 
-        {img:'plant-7.png', title:"3. Choose a picture"}, 
-        {img:'plant-8.png', title:"3. Choose a picture"},
-        {img:'plant-9.png', title:"3. Choose a picture"}, 
-        {img:'plant-10.png', title:"3. Choose a picture"}, 
-        {img:'plant-11.png', title:"3. Choose a picture"}, 
-        {img:'plant-12.png', title:"3. Choose a picture"},
-        {img:'plant-13.png', title:"3. Choose a picture"}, 
-        {img:'plant-14.png', title:"3. Choose a picture"}, 
-        {img:'plant-15.png', title:"3. Choose a picture"}, 
-        {img:'plant-16.png', title:"3. Choose a picture"},
-        {img:'plant-17.png', title:"3. Choose a picture"}, 
-        {img:'plant-18.png', title:"3. Choose a picture"}, 
-        {img:'plant-19.png', title:"3. Choose a picture"},
-        {img:'plant-20.png', title:"3. Choose a picture"}
-
+        {img:'plant-1.png'}, 
+        {img:'plant-2.png'}, 
+        {img:'plant-3.png'}, 
+        {img:'plant-4.png'},
+        {img:'plant-5.png'}, 
+        {img:'plant-6.png'}, 
+        {img:'plant-7.png'}, 
+        {img:'plant-8.png'},
+        {img:'plant-9.png'}, 
+        {img:'plant-10.png'}, 
+        {img:'plant-11.png'}, 
+        {img:'plant-12.png'},
+        {img:'plant-13.png'}, 
+        {img:'plant-14.png'}, 
+        {img:'plant-15.png'}, 
+        {img:'plant-16.png'},
+        {img:'plant-17.png'}, 
+        {img:'plant-18.png'}, 
+        {img:'plant-19.png'},
+        {img:'plant-20.png'}
     ];     
 
     const navigate = useNavigate();
@@ -165,6 +164,7 @@ function AddPlant() {
                         <div className="column" style={{maxWidth: "500px",  float: "right"}}>
                             <div className=""> 
                                 <Carousel carrouselData={carousselImages} handleAvatar={handleAvatar}/>
+                                <p className="has-text-centered title is-size-4">3. Choose a picture</p>
                             </div>
                         </div>
                     </div>
