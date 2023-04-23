@@ -169,7 +169,7 @@ function AddPlant() {
                         </div>
                     </div>
                     <div className="has-text-centered mt-4">
-                        <button className="button is-warning is-rounded is-large mb-5 mt-5"  type="submit" disabled={isButtonSubmitEnable} onClick={handleOnSubmit}>Submit</button>
+                        <button className="button is-warning is-rounded is-large mb-5 mt-4"  type="submit" disabled={isButtonSubmitEnable} onClick={handleOnSubmit}>Submit</button>
                     </div>
                 </div>
             </div>
